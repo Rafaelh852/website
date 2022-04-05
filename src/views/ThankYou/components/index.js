@@ -1,0 +1,1 @@
+export { default as CtaSimpleCentered } from './CtaSimpleCentered'; 
