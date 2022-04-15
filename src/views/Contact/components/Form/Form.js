@@ -23,8 +23,8 @@ const Form = () => {
         boxShadow={1}
         marginBottom={4}
       >
-        <form action="https://formsubmit.co/el/huzuhu" method="POST">
-          <input type ="hidden" name="_next" value = "https://rafaelhernandez.dev/Thankyou"/>
+        <form action="/Thankyou" method="POST" data-netlify="true">
+        <input type="hidden" name="form-name" value="contact" />
           <Grid container spacing={4}>
             <Grid item xs={12} sm={6}>
 

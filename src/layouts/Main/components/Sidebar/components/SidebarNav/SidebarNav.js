@@ -97,7 +97,7 @@ const SidebarNav = ({ pages }) => {
             fullWidth
             component="a"
             target="blank"
-            href="https://www.linkedin.com/in/rafael-hernandez852/"
+            href="/contact"
           >
             Contact
           </Button>
