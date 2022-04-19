@@ -76,7 +76,7 @@ const CtaSimpleCentered = () => {
                 />
               </Box>
             }
-            href={'@/assets/docs/Rafael Hernandez Resume.docx'}
+            href={'/assets/docs/Rafael Hernandez Resume.docx'}
             download
           >
             Download Resume
