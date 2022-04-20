@@ -11,12 +11,17 @@ import { CtaSimpleCentered } from './components';
 
 
 
+
 const Resume = () => {
   const theme = useTheme();
   const isMd = useMediaQuery(theme.breakpoints.up('md'), {
     defaultMatches: true,
   });
+
+  
+
   return (<Main>
+      
      <Box
        minHeight={'100vh'}
        alignItems={'center'}
