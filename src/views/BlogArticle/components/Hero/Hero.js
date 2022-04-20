@@ -7,6 +7,8 @@ import Avatar from '@mui/material/Avatar';
 
 import Container from '@/components/Container';
 
+
+
 const Hero = () => {
   useEffect(() => {
     const jarallaxInit = async () => {

@@ -24,7 +24,7 @@ const routes = [
     renderer: (params = {}) => <BlogReachViewView {...params} />,
   },
   {
-    path: '/blog-article',
+    path: '/blogArt',
     renderer: (params = {}) => <BlogArticleView {...params} />,
   },
   {

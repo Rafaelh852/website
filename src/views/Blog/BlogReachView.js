@@ -20,6 +20,7 @@ const BlogReachView = () => {
     <Main colorInvert={true}>
       <Box bgcolor={'alternate.main'} position={'relative'}>
         <Hero />
+        
         <Container
           sx={{
             marginTop: '-5rem',
@@ -28,11 +29,17 @@ const BlogReachView = () => {
             paddingY: '0 !important',
           }}
         >
+          
           <SearchBox />
+          
         </Container>
+        
         <Container>
+        
           <FeaturedArticle />
+          
         </Container>
+
         <Container paddingTop={'0 !important'}>
           <LastStories />
         </Container>
@@ -67,9 +74,8 @@ const BlogReachView = () => {
           ></path>
         </Box>
       </Box>
-      <Container>
-        <Newsletter />
-      </Container>
+      
+     
     </Main>
   );
 };

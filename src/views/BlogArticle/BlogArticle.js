@@ -8,10 +8,8 @@ import Main from '@/layouts/Main';
 import Container from '@/components/Container';
 import {
   Content,
-  FooterNewsletter,
   Hero,
-  SidebarArticles,
-  SidebarNewsletter,
+
   SimilarStories,
 } from './components';
 
@@ -26,19 +24,9 @@ const BlogArticle = () => {
       <Box>
         <Hero />
         <Container>
-          <Grid container spacing={4}>
-            <Grid item xs={12} md={8}>
+         
               <Content />
-            </Grid>
-            <Grid item xs={12} md={4}>
-              {isMd ? (
-                <Box marginBottom={4}>
-                  <SidebarArticles />
-                </Box>
-              ) : null}
-              <SidebarNewsletter />
-            </Grid>
-          </Grid>
+            
         </Container>
         <Box
           component={'svg'}
@@ -62,9 +50,7 @@ const BlogArticle = () => {
         <Container>
           <SimilarStories />
         </Container>
-        <Container>
-          <FooterNewsletter />
-        </Container>
+       
         <Box
           component={'svg'}
           preserveAspectRatio="none"

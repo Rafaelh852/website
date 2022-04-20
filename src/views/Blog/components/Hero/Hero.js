@@ -51,7 +51,7 @@ const Hero = () => {
                 color: theme.palette.common.white,
               }}
             >
-              Newsroom
+              The Blog
             </Typography>
           </Box>
           <Box>
