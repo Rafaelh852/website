@@ -76,25 +76,7 @@ const PopularArticles = () => {
         flexDirection={{ xs: 'column', sm: 'row' }}
         marginBottom={4}
       >
-        <Box>
-          <Typography fontWeight={700} variant={'h6'} gutterBottom>
-            Popular articles
-          </Typography>
-          <Typography color={'text.secondary'}>
-            Here’s what we’ve been up to recently.
-          </Typography>
-        </Box>
-        <Box display="flex" marginTop={{ xs: 2, md: 0 }}>
-          <Box
-            component={Button}
-            variant="outlined"
-            color="primary"
-            size="large"
-            marginLeft={2}
-          >
-            View all
-          </Box>
-        </Box>
+       
       </Box>
       <Grid container spacing={4}>
         {mock.map((item, i) => (
@@ -189,12 +171,14 @@ const PopularArticles = () => {
             </Box>
           </Grid>
         ))}
-        <Grid item container justifyContent={'center'} xs={12}>
-          <Pagination count={10} size={'large'} color="primary" />
-        </Grid>
+        
       </Grid>
     </Box>
   );
 };
-
+/* 
+<Grid item container justifyContent={'center'} xs={12}>
+          <Pagination count={10} size={'large'} color="primary" />
+        </Grid>
+*/
 export default PopularArticles;

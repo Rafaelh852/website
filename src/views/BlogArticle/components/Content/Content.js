@@ -17,32 +17,85 @@ import Avatar from '@mui/material/Avatar';
 import IconButton from '@mui/material/IconButton';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import TwitterIcon from '@mui/icons-material/Twitter';
-import InstagramIcon from '@mui/icons-material/Instagram';
+import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 
 
-
-import ReactMarkdown from 'react-markdown'
-import remarkMath from 'remark-math'
+import ReactMarkdown from 'react-markdown';
+import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
+import 'katex/dist/katex.min.css' ;
 
-import { unified } from 'unified';
+/*
+
+const [post,setPost] = useState({});
+  useEffect(()=>{
+    fetch("/blog/index").then((res)=>res.json())
+      .then((data)=> setPost(data.names[0]));
+  },[]);
 
 
 
-console.log()
-const Content = () => {
+ 
+//gets current url and trucates after/Blog/ to set as path 
+  const url = window.location.href;
+  const path = url.slice(url.search("/Blog/")+"/Blog/".length,url.length);
+  
+  // makes api request to flask for body content
+  const [body,setBody] = useState([]);
+  useEffect(()=>{
+    fetch("/blog/" + path).then((res)=>res.json())
+      .then((data)=> setBody(data.content));
+  },[]);
+
+
+
+*/ 
+
+const Content = ({body,header}) => {
 
   const theme = useTheme();
   const isMd = useMediaQuery(theme.breakpoints.up('md'), {
     defaultMatches: true,
   });
 
+  const open = socialLink => {
+    window.open(socialLink, "_blank")
+  }
+  const handleShare = e => {
+    e.preventDefault()
+
+    const ahref = window.location.href
+    const encodedAhref = encodeURIComponent(ahref)
+    var link
+
+    switch (e.currentTarget.id) {
+      case "facebook":
+        link = `https://www.facebook.com/sharer/sharer.php?u=${ahref}`
+        open(link)
+        break
+
+      case "twitter":
+        link = `https://twitter.com/intent/tweet?url=${encodedAhref}`
+        open(link)
+        break
+
+      case "copy":
+        navigator.clipboard.writeText(ahref)
+        break
+
+      default:
+        break
+    }
+  }
+
 
   return (
     <Box>
       <Box paddingX={{ xs: 0, sm: 4, md: 6 }} paddingY={4}>
-      
-        this is where the stuff goes
+          <ReactMarkdown children = {body} 
+            remarkPlugins={[remarkMath]}
+            rehypePlugins={[rehypeKatex]}
+          />
       </Box>
 
       <Box paddingY={4}>
@@ -57,25 +110,28 @@ const Content = () => {
         <Box display={'flex'} alignItems={'center'}>
           <Avatar
             sx={{ width: 50, height: 50, marginRight: 2 }}
-            src={'https://assets.maccarianagency.com/avatars/img3.jpg'}
+            src={header["avatar"][0]}
           />
           <Box>
-            <Typography fontWeight={600}>Jhon Anderson</Typography>
-            <Typography color={'text.secondary'}>May 19, 2021</Typography>
+            <Typography fontWeight={600}>{header["author"][0]}</Typography>
+            <Typography color={'text.secondary'}>{header["date"][0]}</Typography>
           </Box>
         </Box>
         <Box display={'flex'} alignItems={'center'}>
           <Typography color={'text.secondary'}>Share:</Typography>
           <Box marginLeft={0.5}>
-            <IconButton aria-label="Facebook">
+            <IconButton aria-label="Copy" id = "copy" onClick={handleShare}>
+              <ContentCopyIcon />
+            </IconButton>
+            
+            <IconButton aria-label="Facebook" id = "facebook" onClick={handleShare}>
               <FacebookIcon />
             </IconButton>
-            <IconButton aria-label="Instagram">
-              <InstagramIcon />
-            </IconButton>
-            <IconButton aria-label="Twitter">
+           
+            <IconButton aria-label="Twitter" id = "twitter" onClick={handleShare}>
               <TwitterIcon />
-            </IconButton>
+            </IconButton> 
+            
           </Box>
         </Box>
       </Box>

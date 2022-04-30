@@ -9,7 +9,7 @@ import Container from '@/components/Container';
 
 
 
-const Hero = () => {
+const Hero = ({title,author,day,avatar,banner}) => {
   useEffect(() => {
     const jarallaxInit = async () => {
       const jarallaxElems = document.querySelectorAll('.jarallax');
@@ -23,7 +23,7 @@ const Hero = () => {
 
     jarallaxInit();
   });
-
+/// https://assets.maccarianagency.com/backgrounds/img2.jpg
   return (
     <Box
       className={'jarallax'}
@@ -53,7 +53,7 @@ const Hero = () => {
           backgroundSize: 'cover',
           backgroundPosition: 'center center',
           backgroundImage:
-            'url(https://assets.maccarianagency.com/backgrounds/img3.jpg)',
+            `url(${banner})`,
         }}
       />
       <Box
@@ -79,17 +79,17 @@ const Hero = () => {
               marginBottom: 2,
             }}
           >
-            Remote work is the future, but should you go remote?
+            {title}
           </Typography>
           <Box display={'flex'} alignItems={'center'}>
             <Avatar
               sx={{ width: 60, height: 60, marginRight: 2 }}
-              src={'https://assets.maccarianagency.com/avatars/img3.jpg'}
+              src={avatar}
             />
             <ListItemText
               sx={{ margin: 0 }}
-              primary={'Jhon Anderson'}
-              secondary={'May 19, 2021'}
+              primary={author}
+              secondary={day}
               primaryTypographyProps={{
                 variant: 'h6',
                 sx: { color: 'common.white' },

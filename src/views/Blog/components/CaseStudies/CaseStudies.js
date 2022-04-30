@@ -47,23 +47,13 @@ const CaseStudies = () => {
       >
         <Box>
           <Typography fontWeight={700} variant={'h6'} gutterBottom>
-            Case studies
+            Latest Stories
           </Typography>
           <Typography color={'text.secondary'}>
-            In-depth looks at our work.
+            Here is what we've been up to.
           </Typography>
         </Box>
-        <Box display="flex" marginTop={{ xs: 2, md: 0 }}>
-          <Box
-            component={Button}
-            variant="outlined"
-            color="primary"
-            size="large"
-            marginLeft={2}
-          >
-            View all
-          </Box>
-        </Box>
+        
       </Box>
       <Grid container spacing={4}>
         {mock.map((item, i) => (

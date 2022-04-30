@@ -1,10 +1,17 @@
+preview: lorem data da de dooo
+banner: https://assets.maccarianagency.com/backgrounds/img7.jpg
+path: linear
+author: Rafael
+title: Understanding Linear Equations
+date: April 22, 2022
+update-date:
+avatar: https://cdn.discordapp.com/attachments/787122811118026782/967889911720071208/me2.jpg
 # Linear Equations
 
 Linear equations are used to model output behaviors that increase or decrease by a fixed amount $k$proportional to the input $x$ with a constant error term $\epsilon$.
 
-$$
- y = k x+ \epsilon
-$$
+$$ y = k x+ \epsilon$$
+
 
 ### Linear Equations are
 
@@ -20,10 +27,8 @@ the simple interpretation of a linear equation is due to the paramter $k = \frac
 
   
 
-$$
-\Delta{y} = y_{new} - y_{old} \newline = k(x+1) + \epsilon -(kx+\epsilon)\newline
-= \cancel{kx}+k - \cancel{kx} +\cancel\epsilon -\cancel\epsilon \newline = k
-$$
+$$ \Delta{y} = y_{new} - y_{old} \newline = k(x+1) + \epsilon -(kx+\epsilon)\newline = \cancel{kx}+k - \cancel{kx} +\cancel\epsilon -\cancel\epsilon \newline = k $$
+
 
 ```python
 print(32)
