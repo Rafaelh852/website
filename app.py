@@ -5,7 +5,7 @@ import os
 import markdown
 
 app = Flask(__name__,static_folder="./build", static_url_path='')
-cors = CORS(app)
+CORS(app)
 
 @app.route("/blog/<post>")
 @cross_origin()
