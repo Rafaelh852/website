@@ -10,7 +10,7 @@ function App() {
   var [pages,setPage] = useState();
   
   useEffect(()=>{
-    fetch("/Blog/index").then((res)=>res.json())
+    fetch("/blog/index").then((res)=>res.json())
       .then((data)=> setPage(data.names));
   },[]);
 

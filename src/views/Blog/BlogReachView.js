@@ -30,7 +30,7 @@ const BlogReachView = () => {
   var [headers,setHeaders] = useState();
 
   useEffect(()=>{
-    fetch("/index").then((res)=>res.json())
+    fetch("/blog/index").then((res)=>res.json())
       .then((data)=>setHeaders(data.headers));
   },[]);
 

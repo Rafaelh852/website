@@ -27,7 +27,7 @@ const BlogArticle = () => {
   var [page,setPage] = useState();
 
   useEffect(()=>{
-    fetch("/" + path).then((res)=>res.json())
+    fetch("/blog/" + path).then((res)=>res.json())
       .then((data)=>setPage(data));
   },[]);
 
