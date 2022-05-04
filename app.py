@@ -1,14 +1,11 @@
 from flask import Flask
-from flask_cors import CORS, cross_origin
 
 import os
 import markdown
 
-app = Flask(__name__,static_folder="./build", static_url_path='')
-CORS(app)
+app = Flask(__name__)
 
-@app.route("/blog/<post>")
-@cross_origin()
+@app.route("/<post>")
 def index(post):
     ''' markdown headers should have the following without quotes and paths with no /
     preview:  
@@ -52,11 +49,6 @@ def index(post):
             return content
     
     return {"error": "POST NOT FOUND"}        
-
-@app.route('/')
-def serve():
-    return send_from_directory(app.statc_folder,"index.html")
-
 
 
 if __name__ == '__main__':
