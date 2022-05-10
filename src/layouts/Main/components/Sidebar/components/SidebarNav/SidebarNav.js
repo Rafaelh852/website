@@ -72,7 +72,7 @@ const SidebarNav = ({ pages }) => {
         </Box>
         <Box >
         <NavLink
-            title="Socials"
+            title="Socialees"
             href="https://linktr.ee/rafaelh852"
           />
         </Box>
