@@ -71,11 +71,9 @@ const SidebarNav = ({ pages }) => {
           />   
         </Box>
         <Box >
-          <NavItem
-            title={'Socials'}
-            id={'portfolio-pages'}
-            items={socialLinks}
-            
+        <NavLink
+            title="Socials"
+            href="https://linktr.ee/rafaelh852"
           />
         </Box>
         <Box marginTop={2}>
@@ -106,7 +104,16 @@ const SidebarNav = ({ pages }) => {
     </Box>
   );
 };
+/*
 
+<NavItem
+            title={'Socials'}
+            id={'portfolio-pages'}
+            items={socialLinks}
+            
+          />
+
+*/
 /*
 <Box>
           <NavItem title={'Landings'} items={landingPages} />

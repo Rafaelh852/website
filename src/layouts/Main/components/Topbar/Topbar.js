@@ -85,12 +85,14 @@ const Topbar = ({ onSidebarOpen, pages, colorInvert = false }) => {
           </Link>
         </Box>
         <Box marginLeft={4}>
-          <NavItem
-            title={'Socials'}
-            id={'portfolio-pages'}
-            items={socialLinks}
-            colorInvert={colorInvert}
-          />
+        <Link
+            underline="none"
+            component="a"
+            href="https://linktr.ee/rafaelh852"
+            color={colorInvert ? 'common.white' : 'text.primary'}
+          >
+            Socials
+          </Link>
         </Box>
         <Box marginLeft={4}>
           <Button
@@ -130,6 +132,16 @@ Topbar.propTypes = {
   pages: PropTypes.object,
   colorInvert: PropTypes.bool,
 };
+
+/*
+<NavItem
+            title={'Socials'}
+            id={'portfolio-pages'}
+            items={socialLinks}
+            colorInvert={colorInvert}
+          />
+
+*/
 
 /*
 <Box marginLeft={4}>
