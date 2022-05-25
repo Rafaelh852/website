@@ -1,0 +1,3 @@
+[submodule "src/projects/ProjectDATA"]
+	path = src/projects/ProjectDATA
+	url = https://github.com/Rafaelh852/ProjectDATA.git
