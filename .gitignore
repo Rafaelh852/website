@@ -8,6 +8,8 @@
 # testing
 /coverage
 
+/src/projects/**/**
+
 md.py
 # production
 #/build
@@ -26,4 +28,3 @@ yarn-error.log*
 venv/
 .env
 
-src/projects/**/
