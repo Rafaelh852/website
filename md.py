@@ -24,7 +24,7 @@ author:
 title: 
 date: 
 update-date: 
-publish: 
+publish: 1s
     
 # TITLE GOES HEAR
 the rest of markdown...
