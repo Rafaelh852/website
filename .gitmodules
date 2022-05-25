@@ -1,3 +1,13 @@
 [submodule "src/projects/ProjectDATA"]
 	path = src/projects/ProjectDATA
 	url = https://github.com/Rafaelh852/ProjectDATA.git
+
+[submodule "src/projects/mentalHealth"]
+	path = src/projects/mentalHealth
+	url = https://github.com/Rafaelh852/mentalHealth.git
+[submodule "src/projects/2DFEMsolver"]
+	path = src/projects/2DFEMsolver
+	url = https://github.com/Rafaelh852/2DFEMsolver.git
+[submodule "src/projects/NODEmultigridsolver"]
+	path = src/projects/NODEmultigridsolver
+	url = https://github.com/Rafaelh852/NODEmultigridsolver.git
