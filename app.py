@@ -9,7 +9,7 @@ import json
 
 app = Flask(__name__)
 
-@app.route("/blog/<post>")
+@app.route("/<post>")
 def index(post):
     ''' markdown headers should have the following without quotes and paths with no /
     preview:  
