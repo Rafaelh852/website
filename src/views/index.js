@@ -7,3 +7,4 @@ export { default as Resume } from './Resume';
 export { default as PortfolioGrid } from './PortfolioGrid';
 export { default as Contact } from "./Contact";
 export { default as ThankYou } from "./ThankYou";
+export { default as ProjectView } from "./ProjectView";

@@ -5,7 +5,7 @@ author: Rafael
 title: THIS IS THE TITLE PAAAA
 date: April 1, 2022
 update-date: 
-avatar: https://cdn.discordapp.com/attachments/787122811118026782/967889911720071208/me2.jpg
+avatar: /assets/pics/me2.jpg
 
 # TITLE
 *React-Markdown* $ L = \frac{1}{2} \rho v^2 S C_L$

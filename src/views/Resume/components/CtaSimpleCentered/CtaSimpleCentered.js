@@ -5,8 +5,10 @@ import Button from '@mui/material/Button';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
 
+
 import Container from '@/components/Container';
 import Typed from 'react-typed';
+
 
 const CtaSimpleCentered = () => {
   const theme = useTheme();
@@ -85,6 +87,7 @@ const CtaSimpleCentered = () => {
           </Box>
         </Box>
       </Box>
+        
     </Container>
   );
 };

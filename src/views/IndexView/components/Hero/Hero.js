@@ -10,19 +10,35 @@ import { alpha, useTheme } from '@mui/material/styles';
 import Container from '@/components/Container';
 
 const images = [
+ 
   {
     group: [
       {
         cover:
-          'https://assets.maccarianagency.com/screenshots/the-front/img1.png',
+          '/assets/pics/project/prelim1.png',
         coverDark:
-          'https://assets.maccarianagency.com/screenshots/the-front/img1--dark.png',
+          '/assets/pics/project/prelim1.png',
       },
       {
         cover:
-          'https://assets.maccarianagency.com/screenshots/the-front/img4.png',
+          '/assets/pics/blog/unemployment/cali.png',
         coverDark:
-          'https://assets.maccarianagency.com/screenshots/the-front/img4--dark.png',
+          '/assets/pics/blog/unemployment/cali.png',
+      },
+    ],
+  }, {
+    group: [
+      {
+        cover:
+          '/assets/pics/blog/unemployment/total.png',
+        coverDark:
+          '/assets/pics/blog/unemployment/total.png',
+      },
+      {
+        cover:
+          '/assets/pics/project/mod2.png',
+        coverDark:
+          '/assets/pics/project/mod2.png',
       },
     ],
   },
@@ -30,49 +46,27 @@ const images = [
     group: [
       {
         cover:
-          'https://assets.maccarianagency.com/screenshots/the-front/img13.png',
+          '/assets/pics/project/db1.png',
         coverDark:
-          'https://assets.maccarianagency.com/screenshots/the-front/img13--dark.png',
+          '/assets/pics/project/db1.png',
       },
       {
         cover:
-          'https://assets.maccarianagency.com/screenshots/the-front/img10.png',
+          '/assets/pics/project/mentalhealth1.png',
         coverDark:
-          'https://assets.maccarianagency.com/screenshots/the-front/img10--dark.png',
+          '/assets/pics/project/mentalhealth1.png',
       },
       {
         cover:
-          'https://assets.maccarianagency.com/screenshots/the-front/img7.png',
+          '/assets/pics/project/proj2.png',
         coverDark:
-          'https://assets.maccarianagency.com/screenshots/the-front/img7--dark.png',
-      },
-    ],
-  },
-  {
-    group: [
-      {
-        cover:
-          'https://assets.maccarianagency.com/screenshots/the-front/img6.png',
-        coverDark:
-          'https://assets.maccarianagency.com/screenshots/the-front/img6--dark.png',
+          '/assets/pics/project/proj2.png',
       },
       {
         cover:
-          'https://assets.maccarianagency.com/screenshots/the-front/img24.png',
+          '/assets/pics/project/projN.png',
         coverDark:
-          'https://assets.maccarianagency.com/screenshots/the-front/img24--dark.png',
-      },
-      {
-        cover:
-          'https://assets.maccarianagency.com/screenshots/the-front/img17.png',
-        coverDark:
-          'https://assets.maccarianagency.com/screenshots/the-front/img17--dark.png',
-      },
-      {
-        cover:
-          'https://assets.maccarianagency.com/screenshots/the-front/img12.png',
-        coverDark:
-          'https://assets.maccarianagency.com/screenshots/the-front/img12--dark.png',
+          '/assets/pics/project/projN.png',
       },
     ],
   },
@@ -86,6 +80,7 @@ const Hero = () => {
 
   return (
     <Box
+    minHeight={'100vh'}
       sx={{
         backgroundImage: `linear-gradient(to bottom, ${alpha(
           theme.palette.background.paper,
@@ -106,7 +101,7 @@ const Hero = () => {
                 fontWeight: 700,
               }}
             >
-              Turn your ideas
+              Turn your data
               <br />
               into{' '}
               <Typography
@@ -121,7 +116,7 @@ const Hero = () => {
                 }}
               >
                 <Typed
-                  strings={['startup.', 'future.', 'success.']}
+                  strings={['decisions.', 'insights.', 'products.']}
                   typeSpeed={80}
                   loop={true}
                 />
@@ -133,8 +128,8 @@ const Hero = () => {
               color="text.secondary"
               sx={{ fontWeight: 400 }}
             >
-              theFront will make your product look modern and professional while
-              saving you precious time.
+              I will make your data work for you while
+              saving you, time and money.
             </Typography>
             <Box
               display="flex"
@@ -148,9 +143,9 @@ const Hero = () => {
                 color="primary"
                 size="large"
                 fullWidth={isMd ? false : true}
-                href={'/home'}
+                href={'/Portfolio'}
               >
-                View pages
+                View work
               </Button>
               <Box
                 marginTop={{ xs: 2, sm: 0 }}
@@ -159,13 +154,13 @@ const Hero = () => {
               >
                 <Button
                   component={'a'}
-                  href={'/docs/introduction'}
+                  href={'#about'}
                   variant="outlined"
                   color="primary"
                   size="large"
                   fullWidth={isMd ? false : true}
                 >
-                  Documentation
+                  About me
                 </Button>
               </Box>
             </Box>
@@ -225,10 +220,7 @@ const Hero = () => {
           marginBottom: theme.spacing(-1),
         }}
       >
-        <path
-          fill={theme.palette.background.paper}
-          d="M0,0c0,0,934.4,93.4,1920,0v100.1H0L0,0z"
-        ></path>
+        
       </Box>
     </Box>
   );

@@ -1,11 +1,11 @@
 preview: lorem data da de dooo
-banner: https://assets.maccarianagency.com/backgrounds/img3.jpg
-path: linear2434
+banner: https://assets.maccarianagency.com/backgrounds/img7.jpg
+path: linear
 author: Rafael
-title: Understand23ing Li234123near Equations
-date: April 252, 2022
+title: Understanding Linear Equations
+date: April 22, 2022
 update-date:
-avatar: https://cdn.discordapp.com/attachments/787122811118026782/967889911720071208/me2.jpg
+avatar: /assets/pics/me2.jpg
 # Linear Equations
 
 Linear equations are used to model output behaviors that increase or decrease by a fixed amount $k$proportional to the input $x$ with a constant error term $\epsilon$.

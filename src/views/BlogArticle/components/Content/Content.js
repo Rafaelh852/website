@@ -23,6 +23,7 @@ import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import ReactMarkdown from 'react-markdown';
 import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
+import rehypeRaw from 'rehype-raw'
 import 'katex/dist/katex.min.css' ;
 
 /*
@@ -92,9 +93,11 @@ const Content = ({body,header}) => {
   return (
     <Box>
       <Box paddingX={{ xs: 0, sm: 4, md: 6 }} paddingY={4}>
-          <ReactMarkdown children = {body} 
+          <ReactMarkdown 
+            
+            children = {body} 
             remarkPlugins={[remarkMath]}
-            rehypePlugins={[rehypeKatex]}
+            rehypePlugins={[rehypeKatex,rehypeRaw]}
           />
       </Box>
 

@@ -11,7 +11,8 @@ import {
   Resume as ResumeView,
   PortfolioGrid as PortfolioGridView,
   Contact as ContactView,
-  ThankYou as ThankYouView
+  ThankYou as ThankYouView,
+  ProjectView
 } from './views';
 
 
@@ -51,6 +52,10 @@ var routes1 = [
   {
     path: '/Thankyou',
     renderer: (params = {}) => <ThankYouView {...params} />,
+  },
+  {
+    path:"/Projectview",
+    renderer: (params = {}) => <ProjectView {...params} />,
   }
 ];
   

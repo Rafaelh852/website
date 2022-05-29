@@ -12,7 +12,7 @@ const Hero = () => {
       position={'relative'}
       sx={{
         backgroundImage:
-          'url("https://assets.maccarianagency.com/backgrounds/img1.jpg")',
+          'url("https://assets.maccarianagency.com/backgrounds/img3.jpg")',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         marginTop: -13,

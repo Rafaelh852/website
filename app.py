@@ -1,11 +1,15 @@
-from flask import Flask
+from pydoc import source_synopsis
+from flask import Flask, render_template
 
 import os
 import markdown
+from bs4 import BeautifulSoup
+import json
+
 
 app = Flask(__name__)
 
-@app.route("/<post>")
+@app.route("/blog/<post>")
 def index(post):
     ''' markdown headers should have the following without quotes and paths with no /
     preview:  
@@ -15,7 +19,6 @@ def index(post):
     title: 
     date: 
     update-date: 
-    publish:
     avatar: 
         
     # TITLE GOES HEAR
@@ -49,6 +52,22 @@ def index(post):
             return content
     
     return {"error": "POST NOT FOUND"}        
+
+
+@app.route("/project/<proj>")
+def projectView(proj):
+    #path = "./templates"
+    #projNames = os.listdir(path)
+    #file = path + "/" + proj + "/index.html"
+
+    #use names in templates folder to display content based on the proj parameter 
+    filename = "index.html"
+
+    page = render_template(filename)    
+    soup = BeautifulSoup(page,"html.parser")
+
+    return {"content":soup.prettify()}
+    
 
 
 if __name__ == '__main__':

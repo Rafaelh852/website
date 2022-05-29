@@ -9,71 +9,46 @@ import CardActions from '@mui/material/CardActions';
 import Button from '@mui/material/Button';
 import CardMedia from '@mui/material/CardMedia';
 
+//assets from website start at 1 and go to 10?
+//https://assets.maccarianagency.com/backgrounds/img1.jpg
+
 const mock = [
   {
-    image: 'https://assets.maccarianagency.com/backgrounds/img8.jpg',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-    title: 'Lorem ipsum dolor sit amet,',
+  image: '/assets/pics/project/mentalhealth1.png',
+  description: 'Machine Learning Project for kaggle mental health data set. -XGBoost -Sentiment analysis -text mining',
+  title: 'Mental Health in the Workplace',
+  github:"https://github.com/Rafaelh852/mentalHealth",
+  demo:"/nodemo",
   },
   {
-    image: 'https://assets.maccarianagency.com/backgrounds/img9.jpg',
-    description: 'Excepteur sint occaecat cupidatat non proident',
-    title: 'Consectetur adipiscing elit',
+    image: '/assets/pics/project/projN.png',
+    description: 'Finite Element Method 1-Dimensional solver',
+    title: 'FEM 1D solver',
+    github:"https://github.com/Rafaelh852/FEM1Dsolver",
+    demo:"/nodemo",
   },
   {
-    image: 'https://assets.maccarianagency.com/backgrounds/img12.jpg',
-    description: 'Eiusmod tempor incididunt ut labore et dolore magna aliqua. ',
-    title: 'Labore et dolore magna aliqua',
+    image: '/assets/pics/project/proj2.png',
+    description: 'Finite Element Method 2-Dimensional solver',
+    title: 'FEM 2D solver',
+    github:"https://github.com/Rafaelh852/FEM2Dsolver",
+    demo:"/nodemo",
   },
   {
-    image: 'https://assets.maccarianagency.com/backgrounds/img11.jpg',
-    description:
-      'Sed ut perspiciatis unde omnis iste natus error sit voluptatem',
-    title: 'Eiusmod tempor incididunt',
+    image: '/assets/pics/project/prelim1.png',
+    description: 'Student performance in test evaluations',
+    title: 'Student Performance',
+    github:"https://github.com/Rafaelh852/studentPerf",
+    demo:"/nodemo",
   },
   {
-    image: 'https://assets.maccarianagency.com/backgrounds/img11.jpg',
-    description: 'At vero eos et accusamus et iusto odio dignissimos ducimus',
-    title: 'Sed ut perspiciatis',
+    image: '/assets/pics/project/db1.png',
+    description: 'Flask API data framework used to craft project',
+    title: 'Project Data',
+    github:"https://github.com/Rafaelh852/ProjectDATA",
+    demo:"/nodemo",
   },
-  {
-    image: 'https://assets.maccarianagency.com/backgrounds/img12.jpg',
-    description:
-      'Qui blanditiis praesentium voluptatum deleniti atque corrupti',
-    title: 'Unde omnis iste natus',
-  },
-  {
-    image: 'https://assets.maccarianagency.com/backgrounds/img9.jpg',
-    description:
-      'On the other hand, we denounce with righteous indignation and dislike',
-    title: 'Sit voluptatem',
-  },
-  {
-    image: 'https://assets.maccarianagency.com/backgrounds/img8.jpg',
-    description: 'Quos dolores et quas molestias excepturi',
-    title: 'Accusantium doloremque',
-  },
-  {
-    image: 'https://assets.maccarianagency.com/backgrounds/img12.jpg',
-    description: 'Et harum quidem rerum facilis est et expedita distinctio',
-    title: 'Totam rem aperiam',
-  },
-  {
-    image: 'https://assets.maccarianagency.com/backgrounds/img11.jpg',
-    description: 'Nam libero tempore, cum soluta nobis est eligendi optio',
-    title: 'Uae ab illo inventore',
-  },
-  {
-    image: 'https://assets.maccarianagency.com/backgrounds/img8.jpg',
-    description: 'Itaque earum rerum hic tenetur a sapiente delectus',
-    title: 'Beatae vitae dicta',
-  },
-  {
-    image: 'https://assets.maccarianagency.com/backgrounds/img9.jpg',
-    description:
-      'On the other hand, we denounce with righteous indignation and dislike',
-    title: 'Nemo enim ipsam',
-  },
+ 
 ];
 
 const Main = () => {
@@ -85,7 +60,7 @@ const Main = () => {
           <Grid item xs={12} sm={6} md={4} key={i}>
             <Box
               component={'a'}
-              href={''}
+              href={item.demo=="/nodemo"? item.github:item.demo}
               display={'block'}
               width={1}
               height={1}
@@ -125,8 +100,11 @@ const Main = () => {
                 </Box>
                 <Box flexGrow={1} />
                 <Box component={CardActions} justifyContent={'flex-start'}>
+                  <a
+                  href = {item.github}>
                   <Button
                     size="large"
+                    
                     endIcon={
                       <svg
                         width={16}
@@ -145,8 +123,9 @@ const Main = () => {
                       </svg>
                     }
                   >
-                    Learn more
+                    Read more on GitHub
                   </Button>
+                  </a>
                 </Box>
               </Box>
             </Box>

@@ -1,11 +1,11 @@
 preview: lorem data da de dooo
-banner: https://assets.maccarianagency.com/backgrounds/img10.jpg
-path: inference23
+banner: https://assets.maccarianagency.com/backgrounds/img1.jpg
+path: inference
 author: Rafael
-title: The Rul52es of Inference69
-date: April 32, 2022
+title: The Rules of Inference
+date: April 28, 2022
 update-date:
-avatar: https://cdn.discordapp.com/attachments/787122811118026782/967889911720071208/me2.jpg
+avatar: /assets/pics/me2.jpg
 
 # The Rules of Inference
 
