@@ -52,8 +52,7 @@ const Hero = ({title,author,day,avatar,banner}) => {
           backgroundRepeat: 'no-repeat',
           backgroundSize: 'cover',
           backgroundPosition: 'center center',
-          backgroundImage:
-            `url(https://rafaelhernandez.dev${banner})`,
+          backgroundImage: "url(https://rafaelhernandez.dev" + banner + ")",
         }}
       />
       <Box

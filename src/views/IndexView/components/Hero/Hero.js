@@ -77,7 +77,16 @@ const Hero = () => {
   const isMd = useMediaQuery(theme.breakpoints.up('md'), {
     defaultMatches: true,
   });
+  const scrollTo = (id) => {
+    setTimeout(() => {
+      const element = document.querySelector(`#${id}`);
+      if (!element) {
+        return;
+      }
 
+      window.scrollTo({ left: 0, top: element.offsetTop, behavior: 'smooth' });
+    });
+  };
   return (
     <Box
     minHeight={'100vh'}
@@ -117,8 +126,10 @@ const Hero = () => {
               >
                 <Typed
                   strings={['decisions.', 'insights.', 'products.']}
-                  typeSpeed={80}
+                  typeSpeed={45}
                   loop={true}
+                  showCursor={false}
+              
                 />
               </Typography>
             </Typography>
@@ -128,8 +139,8 @@ const Hero = () => {
               color="text.secondary"
               sx={{ fontWeight: 400 }}
             >
-              I will make your data work for you while
-              saving you, time and money.
+              make your data work for you while
+              saving you time and money.
             </Typography>
             <Box
               display="flex"
@@ -154,11 +165,12 @@ const Hero = () => {
               >
                 <Button
                   component={'a'}
-                  href={'#about'}
+                  
                   variant="outlined"
                   color="primary"
                   size="large"
                   fullWidth={isMd ? false : true}
+                  onClick={() => scrollTo('about')}
                 >
                   About me
                 </Button>

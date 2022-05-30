@@ -61,6 +61,7 @@ const Main = () => {
             <Box
               component={'a'}
               href={item.demo=="/nodemo"? item.github:item.demo}
+              target={item.demo=="/nodemo"? "_blank":"_self"}
               display={'block'}
               width={1}
               height={1}
@@ -101,7 +102,9 @@ const Main = () => {
                 <Box flexGrow={1} />
                 <Box component={CardActions} justifyContent={'flex-start'}>
                   <a
-                  href = {item.github}>
+                  href = {item.github}
+                  target = "_blank"
+                  >
                   <Button
                     size="large"
                     

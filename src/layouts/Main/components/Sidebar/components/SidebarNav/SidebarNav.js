@@ -76,17 +76,6 @@ const SidebarNav = ({ pages }) => {
             href="https://linktr.ee/rafaelh852"
           />
         </Box>
-        <Box marginTop={2}>
-          <Button
-            size={'large'}
-            variant="outlined"
-            fullWidth
-            component="a"
-            href="/Portfolio"
-          >
-            Browse
-          </Button>
-        </Box>
         <Box marginTop={1}>
           <Button
             size={'large'}
