@@ -78,7 +78,7 @@ const CtaSimpleCentered = () => {
                 />
               </Box>
             }
-            href={'/assets/docs/Rafael Hernandez Resume.docx'}
+            href={'https://portfolio-static-storage.us-southeast-1.linodeobjects.com/Rafael Hernandez Resume.docx'}
             download
           >
             Download Resume
