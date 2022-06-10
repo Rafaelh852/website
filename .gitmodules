@@ -13,3 +13,6 @@
 [submodule "src/projects/FEM2Dsolver"]
 	path = src/projects/FEM2Dsolver
 	url = https://github.com/Rafaelh852/FEM2Dsolver.git
+[submodule "src/projects/InferentialStatitstics"]
+	path = src/projects/InferentialStatitstics
+	url = https://github.com/Rafaelh852/InferentialStatitstics.git
