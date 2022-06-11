@@ -22,7 +22,15 @@ import {
   Newsletter,
 } from './components';
 
+import ReactGA from "react-ga";
+const TRACKING_ID = "UA-231703413-1";
+ReactGA.initialize(TRACKING_ID);
+
 const BlogReachView = () => {
+  useEffect(() => {
+    ReactGA.pageview(window.location.pathname + window.location.search);
+  }, []);
+
   const theme = useTheme();
   
   var n = 0;
