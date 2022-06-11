@@ -14,10 +14,15 @@ import {
   ThankYou as ThankYouView,
   ProjectView
 } from './views';
-
+import ReactGA from "react-ga";
+const TRACKING_ID = "UA-231703413-1";
+ReactGA.initialize(TRACKING_ID);
 
 const Routes = ({blogPageURL}) => {
 
+  useEffect(() => {
+    ReactGA.pageview(window.location.pathname + window.location.search);
+  }, []);
   
 //update the index.js file when adding a path
 var routes1 = [
