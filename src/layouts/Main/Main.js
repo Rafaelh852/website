@@ -68,7 +68,7 @@ const Main = ({ children, colorInvert = false, bgcolor = 'transparent' }) => {
       />
       <main>
         {children}
-        <Divider />
+        
       </main>
       <Container paddingY={4}>
         <Footer />
@@ -76,7 +76,7 @@ const Main = ({ children, colorInvert = false, bgcolor = 'transparent' }) => {
     </Box>
   );
 };
-
+//<Divider />
 Main.propTypes = {
   children: PropTypes.node,
   colorInvert: PropTypes.bool,

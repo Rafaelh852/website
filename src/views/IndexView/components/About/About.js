@@ -41,17 +41,19 @@ const About = () => {
     });
   };
   
-
+//
+//marginTop={-13}
+//
     return ( 
     
-    <Box  
+      <Box  
         id = "about"
-        minHeight={'100vh'} 
+        paddingY={{ xs: 0, sm: '4rem', md: '8rem' }}
         alignItems={'center'}
         display={'flex'}
-        marginTop={-13}
         paddingTop={13}
         overflow="hidden"
+        
     >
         <Container >
           <Box maxWidth={{ xs: 1, sm: '70%' }}>
@@ -79,25 +81,14 @@ const About = () => {
       <Box marginBottom={3}>
         <Typography variant="h6" component="p" color="text.secondary">
           Rafael is a Data Scientist who's work has achieved funding for colleges and insight for companies. 
+          </Typography>
+        <p></p>
+        <Typography variant="h6" component="p" color="text.secondary">
           While in grad school, Rafael founded a Data Science support group for students trying to break in to the industry.
         </Typography>
-        <Typography variant="h6" component="p" color="text.secondary" marginTop={ 2}>
-         Rafael occasionaly games and likes to bake on his spare time, his favorite food is burgers.
-        </Typography>
+
       </Box>
-      <Box display={"flex"} justifyContent ="flex-start" >
-              <Button
-                component={'a'}
-                variant="outlined"
-                color="primary"
-                size="large"
-                fullWidth={isMd ? false : true}
-                onClick={() => scrollTo('about')}
-                
-              >
-                Learn more
-              </Button>
-      </Box>
+     
       
       <Box
         display="flex"
@@ -108,10 +99,30 @@ const About = () => {
       </Box>
         </Box>
       </Container>
+      <Box maxWidth={500} width={1}>
+            <Box
+              component={'img'}
+              src={
+                'https://assets.maccarianagency.com/svg/illustrations/drawkit-illustration1.svg'
+              }
+              width={1}
+              height={1}
+              sx={{
+                filter:
+                  theme.palette.mode === 'dark' ? 'brightness(0.8)' : 'none',
+              }}
+            />
+          </Box>
     </Box>
        
     );
 };
 ///paddingY={{ xs: 0, sm: '4rem', md: '8rem' }}
+
+/*
+
+
+*/
+
 
 export default About;

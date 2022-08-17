@@ -22,14 +22,18 @@ import {
   Newsletter,
 } from './components';
 
+/*
 import ReactGA from "react-ga";
 const TRACKING_ID = "UA-231703413-1";
 ReactGA.initialize(TRACKING_ID);
-
+*/
 const BlogReachView = () => {
+ 
+  /*
   useEffect(() => {
     ReactGA.pageview(window.location.pathname + window.location.search);
   }, []);
+*/
 
   const theme = useTheme();
   
@@ -37,8 +41,14 @@ const BlogReachView = () => {
   var k = 0;
   var [headers,setHeaders] = useState();
 
+   // use for production
+   //const pa = "/index";
+
+   //use for development
+   const pa = "/blog/index";
+
   useEffect(()=>{
-    fetch("/blog/index").then((res)=>res.json())
+    fetch(pa).then((res)=>res.json())
       .then((data)=>setHeaders(data.headers));
   },[]);
 

@@ -10,6 +10,7 @@ const getTheme = (mode, themeToggler) =>
       shadows: shadows(mode),
       typography: {
         fontFamily: '"Inter", sans-serif',
+        // fontFamily:"Cardo, sans-serif",
         button: {
           textTransform: 'none',
           fontWeight: 'medium',

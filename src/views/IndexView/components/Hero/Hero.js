@@ -89,7 +89,9 @@ const Hero = () => {
   };
   return (
     <Box
-    minHeight={'100vh'}
+    minHeight={300}
+    height={'auto'}
+    overflow="show"
       sx={{
         backgroundImage: `linear-gradient(to bottom, ${alpha(
           theme.palette.background.paper,
@@ -220,7 +222,14 @@ const Hero = () => {
           </Box>
         </Box>
       </Box>
-      <Box
+      
+    </Box>
+  );
+};
+
+
+/*
+<Box
         component={'svg'}
         preserveAspectRatio="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -234,8 +243,6 @@ const Hero = () => {
       >
         
       </Box>
-    </Box>
-  );
-};
 
+*/
 export default Hero;

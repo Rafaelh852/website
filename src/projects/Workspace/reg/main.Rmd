@@ -1,0 +1,605 @@
+---
+title: "Student Performance in Test Scores"
+output:
+  html_document: default
+  pdf_document: default
+  word_document: default
+---
+
+$$\hat{Y} = \beta_0 + \beta_1*reading + \beta_2 writing + \beta_3*testPrep +\beta_4*lunchType + \beta_5*gender + \beta_6*parLevEd + \beta_7*reading*parLevEd$$
+```{r}
+library(GGally)
+library(tidyverse)
+library(leaps)
+library(broom)
+library(MASS)
+
+# importing the data
+data = read.csv("StudentsPerformance.csv")
+
+#first 5 rows of the data
+head(data)
+```
+
+```{r}
+names(data)
+summary(data)
+```
+
+```{r}
+ggpairs(subset(data, select = -math.score))
+```
+
+
+```{r}
+
+#setting the potential predictors and response variable
+math = data$math.score
+
+reading = data$reading.score
+writing = data$writing.score
+
+
+#categorical data
+
+#none  = 1, complete = 0 
+#testprep = data$test.preparation.course
+testprep = relevel(data$test.preparation.course, ref="none")
+
+#standard = 1, free/reduced = 0
+lunchtype = data$lunch
+
+#male = 1, female= 0
+gender = data$gender
+
+#chd : completed higher degree, nhd: no higher degree
+#chd = 1, nhd = 0
+#parLevEd = data$parental.level.of.education
+parLevEd = relevel(data$parental.level.of.education, ref = "nhd")
+```
+```{r}
+hist(math)
+hist(reading)
+hist(writing)
+
+```
+## model selection 
+```{r}
+prop.table(gender)
+
+```
+
+```{r}
+#establishing a lower and upper model
+mod0 = lm(math.score ~ 1,data =data)
+mod.all = lm(math.score ~ .,data =data)
+# AIC
+step(mod0, scope = list(lower = mod0, upper = mod.all))
+
+```
+
+so we can include the full model
+
+ Current Full model $\hat{Y} \sim reading + writing + testPrep + lunc $
+```{r}
+#checking for the largest R^2 change
+m.0 = lm(math~1)
+m.1 = lm(math~reading)
+m.2 = lm(math~reading + writing)
+m.3 = lm(math~reading + writing + testprep)
+m.4 = lm(math~reading + writing + testprep + lunchtype)
+m.5 = lm(math~reading + writing + testprep + lunchtype + gender)
+m.6 = lm(math~reading + writing + testprep + lunchtype + gender + parLevEd) 
+m.7 = lm(math~reading + writing + testprep + lunchtype + gender + parLevEd + reading*parLevEd)
+m.65 = lm(math~writing + testprep + lunchtype + gender + parLevEd)
+
+
+
+
+rs.0 = summary(m.0)$adj.r.squared
+rs.1 = summary(m.1)$adj.r.squared
+rs.2 = summary(m.2)$adj.r.squared
+rs.3 = summary(m.3)$adj.r.squared
+rs.4 = summary(m.4)$adj.r.squared
+rs.5 = summary(m.5)$adj.r.squared
+rs.6 = summary(m.6)$adj.r.squared
+rs.7 = summary(m.7)$adj.r.squared
+rs.65 = summary(m.65)$adj.r.squared
+
+
+#dr0 = rs.1 - rs.0
+dr1 = rs.2 - rs.1
+dr2 = rs.3 - rs.2
+dr3 = rs.4 - rs.3
+dr4 = rs.5 - rs.4
+dr5 = rs.6 - rs.5
+dr6 = rs.7 - rs.6
+dr7 = rs.6 - rs.65
+
+#dr0
+"+writing"
+dr1
+"+testprep"
+dr2
+"+lunchtype" 
+dr3
+"+gender"
+dr4
+"+parLevEd"
+dr5
+"+interaction"
+dr6
+"-reading"
+dr7
+
+```
+
+### checking interaction terms
+```{r}
+
+#if p<0.05 include the interaction term
+
+#base full model with no interaction terms
+bmodel = lm(math ~ reading + writing + testprep + lunchtype + gender + parLevEd )
+
+#no
+brmodel.1 = lm(math ~ reading + writing + testprep + lunchtype + gender + parLevEd +
+                  reading*testprep
+                 ) 
+
+f<-anova(bmodel,brmodel.1)
+f$`Pr(>F)`[2]
+
+#no
+brmodel.2 = lm(math ~ reading + writing + testprep + lunchtype + gender + parLevEd +
+                  reading*lunchtype
+                 ) 
+f<-anova(bmodel,brmodel.2)
+f$`Pr(>F)`[2]
+
+#no but yes on 10% tol
+brmodel.3 = lm(math ~ reading + writing + testprep + lunchtype + gender + parLevEd +
+                  reading*gender
+                 ) 
+f<-anova(bmodel,brmodel.3)
+f$`Pr(>F)`[2]
+
+#yes
+brmodel.4 = lm(math ~ reading + writing + testprep + lunchtype + gender + parLevEd +
+                  reading*parLevEd
+                 ) 
+f<-anova(bmodel,brmodel.4)
+f$`Pr(>F)`[2] 
+
+#no
+brwmodel.1 = lm(math ~ reading + writing + testprep + lunchtype + gender + parLevEd +
+                  reading*parLevEd +
+                  writing*testprep
+                 ) 
+f<-anova(brmodel.4,brwmodel.1)
+f$`Pr(>F)`[2] 
+
+#no
+brwmodel.2 = lm(math ~ reading + writing + testprep + lunchtype + gender + parLevEd +
+                  reading*parLevEd +
+                  writing*lunchtype
+                 ) 
+
+f<-anova(brmodel.4,brwmodel.2)
+f$`Pr(>F)`[2] 
+
+#no
+brwmodel.3 = lm(math ~ reading + writing + testprep + lunchtype + gender + parLevEd +
+                  reading*parLevEd +
+                  writing*gender
+                 ) 
+f<-anova(brmodel.4,brwmodel.3)
+f$`Pr(>F)`[2]
+
+#no
+brwmodel.4 = lm(math ~ reading + writing + testprep + lunchtype + gender + parLevEd +
+                  reading*parLevEd +
+                  writing*parLevEd
+                 ) 
+anova(brmodel.4,brwmodel.4)
+f$`Pr(>F)`[2]
+
+
+```
+```{r}
+#if p<0.05 include the nonlinear term
+#model after checking for interaction terms
+brmodel.4 = lm(math ~ reading + writing + testprep + lunchtype + gender + parLevEd +
+                  reading*parLevEd
+                 )
+#add
+nonlin.1 = lm(math ~ reading + writing + testprep + lunchtype + gender + parLevEd + reading*parLevEd +
+                I(reading^2)
+                 )
+
+f<-anova(brmodel.4,nonlin.1)
+f$`Pr(>F)`[2] 
+
+#add
+nonlin.2 = lm(math ~ reading + writing + testprep + lunchtype + gender + parLevEd + reading*parLevEd +
+                I(reading^2) + I(writing^2)
+                 )
+
+f<-anova(nonlin.1,nonlin.2)
+f$`Pr(>F)`[2] 
+
+#dont add
+nonlin.3 = lm(math ~ reading + writing + testprep + lunchtype + gender + parLevEd + reading*parLevEd +
+                I(reading^2) + I(writing^2) + I(reading^3)
+                 )
+f<-anova(nonlin.2,nonlin.3)
+f$`Pr(>F)`[2] 
+
+#add 
+nonlin.4 = lm(math ~ reading + writing + testprep + lunchtype + gender + parLevEd + reading*parLevEd +
+                I(reading^2) + I(writing^2) + I(writing^3) 
+                 )
+
+f<-anova(nonlin.2,nonlin.4)
+f$`Pr(>F)`[2] 
+
+#dont add
+nonlin.5 = lm(math ~ reading + writing + testprep + lunchtype + gender + parLevEd + reading*parLevEd +
+                I(reading^2) + I(writing^2) + I(writing^3) + I(writing^4) 
+                 )
+
+f<-anova(nonlin.4,nonlin.5)
+f$`Pr(>F)`[2] 
+
+summary(nonlin.4)
+
+```
+```{r}
+mod =  lm(math ~ reading + writing + testprep + lunchtype + gender + parLevEd + reading*parLevEd +
+                I(reading^2) + I(writing^2) + I(writing^3) 
+                 )
+
+model = lm(math ~ reading + writing + testprep + lunchtype + gender + parLevEd +
+                  reading*parLevEd
+                 ) 
+modelj = lm(math ~ reading + writing  + lunchtype + gender +testprep
+                 ) 
+anova(modelj,model)
+summary(mod)
+summary(model)
+```
+```{r}
+avstudent = data.frame(reading = 69,writing = 68, testprep = "completed", lunchtype = "standard", gender = "female", parLevEd = "chd")
+
+predict(model,avstudent,interval = 'confidence', level = 0.95)  
+
+avstudent = data.frame(reading = 69,writing = 65, testprep = "completed", lunchtype = "standard", gender = "male", parLevEd = "chd")
+
+predict(model,avstudent,interval = 'confidence', level = 0.95)  
+
+avstudent = data.frame(reading = 69,writing = 68, testprep = "none", lunchtype = "standard", gender = "female", parLevEd = "chd")
+
+predict(model,avstudent,interval = 'confidence', level = 0.95)  
+
+avstudent = data.frame(reading = 69,writing = 65, testprep = "none", lunchtype = "standard", gender = "male", parLevEd = "chd")
+
+predict(model,avstudent,interval = 'confidence', level = 0.95)  
+
+#######
+
+avstudent = data.frame(reading = 69,writing = 68, testprep = "completed", lunchtype = "standard", gender = "female", parLevEd = "nhd")
+
+predict(model,avstudent,interval = 'confidence', level = 0.95)  
+
+avstudent = data.frame(reading = 69,writing = 65, testprep = "completed", lunchtype = "standard", gender = "male", parLevEd = "nhd")
+
+predict(model,avstudent,interval = 'confidence', level = 0.95)  
+
+avstudent = data.frame(reading = 69,writing = 68, testprep = "none", lunchtype = "free/reduced", gender = "female", parLevEd = "nhd")
+
+predict(model,avstudent,interval = 'confidence', level = 0.95)  
+
+avstudent = data.frame(reading = 69,writing = 65, testprep = "none", lunchtype = "free/reduced", gender = "male", parLevEd = "nhd")
+
+predict(model,avstudent,interval = 'confidence', level = 0.95)  
+
+
+```
+
+```{r}
+
+
+ggplot(data=data, aes(x=reading, y = math, color=parLevEd, pch =parLevEd)) +
+  geom_point() +
+ 
+  labs(x = 'reading', y = 'math score')
+```
+
+
+### residual analysis1
+```{r}
+e = resid(model)
+yhat = fitted(model)
+
+#looks good
+plot(reading,e, xlab="reading", ylab = "residuals")
+abline(h=0,col=2,lty=2)
+
+#slight fanning
+plot(writing,e, xlab="writing", ylab = "residuals")
+abline(h=0,col=2,lty=2)
+```
+
+```{r}
+#norml Q-Q plot of the fitted values
+qqnorm(yhat)
+qqline(yhat, col="blue", lty =2)
+plot(model)
+```
+```{r}
+shap = shapiro.test(model$residuals)
+shap$p.value
+```
+
+given a significance level of 5% and a null hypothesis that the residuals are normally distributed. The shapiro test gives a 73.7% p-value which is greater than 5% which means that we do not reject the null hypothesis that is we can assume normality
+
+
+```{r}
+plot(writing,math, xlab="writing", ylab = "response")
+abline(a = model$coefficients[1] , b = model$coefficients[3])
+plot(reading,math, xlab="reading", ylab = "response")
+
+
+```
+
+```{r}
+confint(model)
+```
+$\hat{Y} = \beta_0 + \beta_1*reading + \beta_2 writing + \beta_3*testPrep +\beta_4*lunchType + \beta_5*gender + \beta_6*parLevEd + \beta_7*reading*parLevEd $
+--- 
+
+```{r}
+
+#checking writing as reduced model
+wlm.1 = lm(math~writing)
+```
+
+```{r}
+
+#anova is always reduced vs full
+#anova(reduced,full)
+#if p<0.05 include the interaction term
+
+#anova checking the interaction terms as "full models"
+wlm.2 = lm(math~writing + testprep*writing)
+f<-anova(wlm.1,wlm.2)
+ifelse(f$`Pr(>F)`[2] < 0.05,print("include"),print("don't include")) 
+f$`Pr(>F)`[2]
+
+wlm.3 = lm(math~writing + lunchtype*writing)
+f<-anova(wlm.1,wlm.3)
+ifelse(f$`Pr(>F)`[2] < 0.05,print("include"),print("don't include"))  
+f$`Pr(>F)`[2]
+
+wlm.4 = lm(math~writing + gender*writing)
+f<-anova(wlm.1,wlm.4)
+ifelse(f$`Pr(>F)`[2] < 0.05,print("include"),print("don't include")) 
+f$`Pr(>F)`[2]
+
+wlm.5 = lm(math~writing + parLevEd*writing)
+f<-anova(wlm.1,wlm.5)
+ifelse(f$`Pr(>F)`[2] < 0.05,print("include"),print("don't include")) 
+f$`Pr(>F)`[2]
+```
+
+```{r}
+
+#test prep
+ggplot(data=data, aes(x=writing, y = math, color=testprep, pch =testprep)) +
+  geom_point() +
+  geom_line(data = augment(wlm.2), aes(y = .fitted, color = testprep)) +
+  labs(x = 'writing score', y = 'math score')
+
+#lunchtype
+ggplot(data=data, aes(x=writing, y = math, color=lunchtype, pch =lunchtype)) +
+  geom_point() +
+  geom_line(data = augment(wlm.3), aes(y = .fitted, color = lunchtype)) +
+  labs(x = 'writing score', y = 'math score')
+
+#gender
+ggplot(data=data, aes(x=writing, y =math, color=gender, pch =gender)) +
+  geom_point() +
+  geom_line(data = augment(wlm.4), aes(y = .fitted, color = gender)) +
+  labs(x = 'writing score', y = 'math score')
+
+#parleved
+ggplot(data=data, aes(x=writing, y = math, color=parLevEd, pch =parLevEd)) +
+  geom_point() +
+  geom_line(data = augment(wlm.5), aes(y = .fitted, color = parLevEd)) +
+  labs(x = 'writing score', y = 'math score')
+```
+
+
+```{r}
+
+#checking reading as reduced model
+rlm.1 = lm(math~reading)
+```
+
+```{r}
+
+#anova is always reduced vs full
+#anova(reduced,full)
+#if p<0.05 include the interaction term
+
+#anova checking the interaction terms as "full models"
+rlm.2 = lm(math~reading + testprep*reading)
+f<-anova(rlm.1,rlm.2)
+ifelse(f$`Pr(>F)`[2] < 0.05,print("include"),print("don't include"))  
+f$`Pr(>F)`[2]
+
+rlm.3 = lm(math~reading + lunchtype*reading)
+f<-anova(rlm.1,rlm.3)
+ifelse(f$`Pr(>F)`[2] < 0.05,print("include"),print("don't include")) 
+f$`Pr(>F)`[2]
+
+rlm.4 = lm(math~reading + gender*reading)
+f<-anova(rlm.1,rlm.4)
+ifelse(f$`Pr(>F)`[2] < 0.05,print("include"),print("don't include")) 
+f$`Pr(>F)`[2]
+
+rlm.5 = lm(math~reading + parLevEd*reading)
+f<-anova(rlm.1,rlm.5)
+ifelse(f$`Pr(>F)`[2] < 0.05,print("include"),print("don't include")) 
+f$`Pr(>F)`[2]
+```
+```{r}
+summary(rlm.2)
+```
+
+```{r}
+
+#test prep
+ggplot(data=data, aes(x=reading, y = math, color=testprep, pch =testprep)) +
+  geom_point() +
+  geom_line(data = augment(rlm.2), aes(y = .fitted, color = testprep)) +
+  labs(x = 'reading score', y = 'math score')
+
+#lunchtype
+ggplot(data=data, aes(x=reading, y = math, color=lunchtype, pch =lunchtype)) +
+  geom_point() +
+  geom_line(data = augment(rlm.3), aes(y = .fitted, color = lunchtype)) +
+  labs(x = 'reading score', y = 'math score')
+
+#gender
+ggplot(data=data, aes(x=reading, y = math, color=gender, pch =gender)) +
+  geom_point() +
+  geom_line(data = augment(rlm.4), aes(y = .fitted, color = gender)) +
+  labs(x = 'reading score', y = 'math score')
+
+#parleved
+ggplot(data=data, aes(x=reading, y = math, color=parLevEd, pch =parLevEd)) +
+  geom_point() +
+  geom_line(data = augment(rlm.5), aes(y = .fitted, color = parLevEd)) +
+  labs(x = 'reading score', y = 'math score')
+```
+
+```{r}
+predict(model)  
+```
+
+
+```{r}
+#models are ordered from smallest number of predictors to largest
+
+#base full model with no interaction terms
+bmodel = lm(math ~ reading + writing + testprep + lunchtype + gender + parLevEd )
+
+#Second Educated Guess model
+kmodel= lm(math ~ reading + writing + testprep + lunchtype + gender + parLevEd + 
+                   writing*parLevEd  
+             )
+#First Educated guess model using BIC assumption
+pmodel = lm(math ~ reading + writing + testprep + lunchtype + gender + parLevEd + 
+                   writing*parLevEd +  
+                   reading*testprep 
+             )
+
+#model using only graph intersections.
+#i.e if graphs intersect then there is an interaction term so keep it
+jmodel = lm(math ~ reading + writing + testprep + lunchtype + gender + parLevEd + 
+                   writing*parLevEd+ 
+                   reading*testprep + reading*parLevEd
+             )
+#model using only F-test results , this is the inverted result of j model
+gmodel = lm(math ~ reading + writing + testprep + lunchtype + gender + parLevEd +
+                  writing*testprep + writing*lunchtype + writing*gender +
+                  reading*lunchtype + reading*gender
+             )
+bmodel = lm(math ~ reading + writing + testprep + lunchtype + gender + parLevEd + 
+                  writing*testprep + writing*lunchtype + writing*gender +
+                  reading*lunchtype + reading*gender +
+                  I(writing^2))
+
+```
+
+```{r}
+#anova is always reduced vs full
+#anova(reduced,full)
+
+#keep full model until p >0.05 
+
+# if p < 0.05 we reject H0 in favor of the alternative.
+# the reduced model is always H0 bc it would suggest all coeff are 0
+# so take full model if p < 0.05
+
+#if p< 0.05  use full model
+
+f<-anova(kmodel,bmodel)
+f$`Pr(>F)`[2]
+
+anova(pmodel,bmodel)
+f$`Pr(>F)`[2]
+
+f<-anova(jmodel,bmodel)
+f$`Pr(>F)`[2]
+
+f<-anova(gmodel,bmodel)
+f$`Pr(>F)`[2]
+
+#f<-anova(bmodel,b1model)
+#f$`Pr(>F)`[2]
+
+#summary(pmodel)
+```
+```{r}
+summary(gmodel)
+summary(jmodel)
+```
+
+```{r}
+model = bmodel
+
+e = resid(model)
+yhat = fitted(model)
+summary(model)
+```
+```{r}
+plot(yhat,e, xlab="Fitted Values", ylab = "residuals")
+abline(h=0,col=2,lty=2)
+```
+```{r}
+#norml Q-Q plot of the fitted values
+qqnorm(yhat)
+qqline(yhat, col="blue", lty =2)
+```
+```{r}
+
+shap = shapiro.test(model$residuals)
+shap$p.value
+```
+
+given a significance level of 5% and a null hypothesis that the residuals are normally distributed. The shapiro test gives a 79.2% p-value which is greater than 5% which means that we do not reject the null hypothesis that is we can assume normality
+
+
+
+
+
+###
+1. using f test results in one model with large p value
+2. using line intersection in one model results with smaller p value but not significant
+3. mixing both approaches yeilds a significant p value but no idea how to justify
+ie the approaches dont line up.
+
+----
+
+
+
+
+```{r}
+# BIC
+n = nrow(data)
+step(mod0, scope = list(lower = mod0, upper = mod.all), k = log(n))
+
+```
+

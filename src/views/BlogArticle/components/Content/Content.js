@@ -92,7 +92,8 @@ const Content = ({body,header}) => {
 
   return (
     <Box>
-      <Box paddingX={{ xs: 0, sm: 4, md: 6 }} paddingY={4}>
+      <Box paddingX={{ xs: 0, sm: 4, md: 6 }} paddingY={4} fontSize="20px" lineHeight="32px" >
+
           <ReactMarkdown 
             
             children = {body} 
@@ -100,7 +101,6 @@ const Content = ({body,header}) => {
             rehypePlugins={[rehypeKatex,rehypeRaw]}
           />
       </Box>
-
       <Box paddingY={4}>
         <Divider />
       </Box>
@@ -110,17 +110,8 @@ const Content = ({body,header}) => {
         justifyContent={'space-between'}
         flexWrap={'wrap'}
       >
-        <Box display={'flex'} alignItems={'center'}>
-          <Avatar
-            sx={{ width: 50, height: 50, marginRight: 2 }}
-            src={header["avatar"][0]}
-          />
-          <Box>
-            <Typography fontWeight={600}>{header["author"][0]}</Typography>
-            <Typography color={'text.secondary'}>{header["date"][0]}</Typography>
-          </Box>
-        </Box>
-        <Box display={'flex'} alignItems={'center'}>
+       
+        <Box container display={'flex'} alignItems={'center'} justifyContent="flex-end">
           <Typography color={'text.secondary'}>Share:</Typography>
           <Box marginLeft={0.5}>
             <IconButton aria-label="Copy" id = "copy" onClick={handleShare}>
@@ -141,5 +132,17 @@ const Content = ({body,header}) => {
     </Box>
   );
 };
+/*
+ <Box display={'flex'} alignItems={'center'}>
+          <Avatar
+            sx={{ width: 50, height: 50, marginRight: 2 }}
+            src={header["avatar"][0]}
+          />
+          <Box>
+            <Typography fontWeight={600}>{header["author"][0]}</Typography>
+            <Typography color={'text.secondary'}>{header["date"][0]}</Typography>
+          </Box>
+        </Box>
 
+*/
 export default Content;

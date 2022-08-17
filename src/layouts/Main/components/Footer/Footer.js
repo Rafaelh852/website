@@ -6,13 +6,16 @@ import Link from '@mui/material/Link';
 import Typography from '@mui/material/Typography';
 import { useTheme } from '@mui/material/styles';
 
+import {LinkList, IconList} from "./components";
+
+
 const Footer = () => {
   const theme = useTheme();
   const { mode } = theme.palette;
 
   const mock = [
     //"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-plain.svg",
-    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original-wordmark.svg" ,
+    //"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original-wordmark.svg" ,
     //"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-plain-wordmark.svg",
     //"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-plain-wordmark.svg",
     //"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-plain-wordmark.svg",
@@ -20,8 +23,40 @@ const Footer = () => {
     
 ]
 
-  return (
-    <Grid container spacing={2}>
+  return (<Grid container  padding = "20px 0">
+      <Grid item xs = {2} paddingY="15px">
+        <Link
+            underline="none"
+            component="a"
+            href="/"
+            
+          >
+            <Typography
+              fontFamily={"le-havre, sans-serif;"}
+              fontSize="24px"
+             
+            >
+              Rafael Hernandez 
+            </Typography>
+        </Link>
+      </Grid>
+      <Grid 
+          item
+          xs = {10}
+          display={"flex"}
+          flexDirection="row"
+          padding = "0"
+       >
+        <LinkList />
+
+        <IconList />
+                
+    </Grid>
+  </Grid>
+  );
+};
+/*
+<Grid container spacing={2} max-height="100px" border = "2px solid red">
       <Grid item xs={12}>
         <Box
           display={'flex'}
@@ -30,7 +65,7 @@ const Footer = () => {
           width={1}
           flexDirection={{ xs: 'column', sm: 'row' }}
         >
-           <Box marginLeft = {0}>
+           <Box  paddingLeft={{sm:"20px",md:"40px"}} flexWrap="nowrap">
           <Link
             underline="none"
             component="a"
@@ -39,9 +74,10 @@ const Footer = () => {
           >
             <Typography
               fontFamily={"le-havre, sans-serif;"}
-              fontSize="28px"
+              fontSize="24px"
+             
             >
-              Rafael Hernandez.
+              Rafael Hernandez 
             </Typography>
           </Link>
         </Box>
@@ -66,41 +102,57 @@ const Footer = () => {
               filter: 'contrast(0)',
             }}
           />
+          
         </Box>
       ))}
     </Box>
+      <Grid 
+          display="flex" 
+          flexWrap={'wrap'}
+          alignItems={'center'}
+          border = "2px solid red"
+          container
+       >
+        <LinkList />
+
+        <IconList />
+                
+      </Grid>
+    </Box>
+        
+      </Grid>
+      
+    </Grid>
+
+*/
 
 
 
-          <Box display="flex" flexWrap={'wrap'} alignItems={'center'}>
-            <Box marginTop={1} marginRight={1}>
+/*<Box marginTop={1} marginRight={10}>
               <Link
                 underline="none"
                 component="a"
-                href="/"
+                href="/contact"
                 color="text.primary"
                 variant={'subtitle2'}
+                fontSize="18px"
               >
-                Home
+                Contact
               </Link>
             </Box>
-            <Box marginTop={1} marginRight={2}>
+            <Box marginTop={1} marginRight={10}>
               <Link
                 underline="none"
                 component="a"
                 href="https://www.linkedin.com/in/rafael-hernandez852/"
                 color="text.primary"
                 variant={'subtitle2'}
+                fontSize="18px"
               >
-                Contact
+                <LinkedInIcon/>
               </Link>
             </Box>
-            
-          </Box>
-        </Box>
-        
-      </Grid>
-      <Grid item xs={12}>
+<Grid item xs={12}>
         <Typography
           align={'center'}
           variant={'subtitle2'}
@@ -121,8 +173,6 @@ const Footer = () => {
           experience and for marketing purposes.
         </Typography>
       </Grid>
-    </Grid>
-  );
-};
 
+*/
 export default Footer;
