@@ -15,30 +15,30 @@ const images = [
     group: [
       {
         cover:
-          '/assets/pics/project/prelim1.png',
+          'https://portfolio-static-storage.us-southeast-1.linodeobjects.com/prelim1.png',
         coverDark:
-          '/assets/pics/project/prelim1.png',
+        'https://portfolio-static-storage.us-southeast-1.linodeobjects.com/prelim1.png',
       },
       {
         cover:
-          '/assets/pics/blog/unemployment/cali.png',
+          'https://portfolio-static-storage.us-southeast-1.linodeobjects.com/cali.png',
         coverDark:
-          '/assets/pics/blog/unemployment/cali.png',
+          'https://portfolio-static-storage.us-southeast-1.linodeobjects.com/cali.png',
       },
     ],
   }, {
     group: [
       {
         cover:
-          '/assets/pics/blog/unemployment/total.png',
+          'https://portfolio-static-storage.us-southeast-1.linodeobjects.com/total.png',
         coverDark:
-          '/assets/pics/blog/unemployment/total.png',
+          'https://portfolio-static-storage.us-southeast-1.linodeobjects.com/total.png',
       },
       {
         cover:
-          '/assets/pics/project/mod2.png',
+          'https://portfolio-static-storage.us-southeast-1.linodeobjects.com/mod2.png',
         coverDark:
-          '/assets/pics/project/mod2.png',
+          'https://portfolio-static-storage.us-southeast-1.linodeobjects.com/mod2.png',
       },
     ],
   },
@@ -46,27 +46,27 @@ const images = [
     group: [
       {
         cover:
-          '/assets/pics/project/db1.png',
+          'https://portfolio-static-storage.us-southeast-1.linodeobjects.com/db1.png',
         coverDark:
-          '/assets/pics/project/db1.png',
+          'https://portfolio-static-storage.us-southeast-1.linodeobjects.com/db1.png',
       },
       {
         cover:
-          '/assets/pics/project/mentalhealth1.png',
+          'https://portfolio-static-storage.us-southeast-1.linodeobjects.com/mentalhealth1.png',
         coverDark:
-          '/assets/pics/project/mentalhealth1.png',
+          'https://portfolio-static-storage.us-southeast-1.linodeobjects.com/mentalhealth1.png',
       },
       {
         cover:
-          '/assets/pics/project/proj2.png',
+          'https://portfolio-static-storage.us-southeast-1.linodeobjects.com/proj2.png',
         coverDark:
-          '/assets/pics/project/proj2.png',
+          'https://portfolio-static-storage.us-southeast-1.linodeobjects.com/proj2.png',
       },
       {
         cover:
-          '/assets/pics/project/projN.png',
+          'https://portfolio-static-storage.us-southeast-1.linodeobjects.com/projN.png',
         coverDark:
-          '/assets/pics/project/projN.png',
+          'https://portfolio-static-storage.us-southeast-1.linodeobjects.com/projN.png',
       },
     ],
   },

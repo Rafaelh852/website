@@ -18,7 +18,7 @@ import {
 } from './views';
 
 
-
+// This is the only One Needed to track everything except the blog pages
 import ReactGA from "react-ga";
 const TRACKING_ID = "UA-231703413-1";
 ReactGA.initialize(TRACKING_ID);

@@ -14,35 +14,35 @@ import CardMedia from '@mui/material/CardMedia';
 
 const mock = [
   {
-  image: '/assets/pics/project/mentalhealth1.png',
+  image: 'https://portfolio-static-storage.us-southeast-1.linodeobjects.com/mentalhealth1.png',
   description: 'Machine Learning Project for kaggle mental health data set. -XGBoost -Sentiment analysis -text mining',
   title: 'Mental Health in the Workplace',
   github:"https://github.com/Rafaelh852/mentalHealth",
   demo:"/nodemo",
   },
   {
-    image: '/assets/pics/project/projN.png',
+    image: 'https://portfolio-static-storage.us-southeast-1.linodeobjects.com/projN.png',
     description: 'Finite Element Method 1-Dimensional solver',
     title: 'FEM 1D solver',
     github:"https://github.com/Rafaelh852/FEM1Dsolver",
     demo:"/nodemo",
   },
   {
-    image: '/assets/pics/project/proj2.png',
+    image: 'https://portfolio-static-storage.us-southeast-1.linodeobjects.com/proj2.png',
     description: 'Finite Element Method 2-Dimensional solver',
     title: 'FEM 2D solver',
     github:"https://github.com/Rafaelh852/FEM2Dsolver",
     demo:"/nodemo",
   },
   {
-    image: '/assets/pics/project/prelim1.png',
+    image: 'https://portfolio-static-storage.us-southeast-1.linodeobjects.com/prelim1.png',
     description: 'Student performance in test evaluations',
     title: 'Student Performance',
     github:"https://github.com/Rafaelh852/studentPerf",
     demo:"/nodemo",
   },
   {
-    image: '/assets/pics/project/db1.png',
+    image: 'https://portfolio-static-storage.us-southeast-1.linodeobjects.com/db1.png',
     description: 'Flask API data framework used to craft project',
     title: 'Project Data',
     github:"https://github.com/Rafaelh852/ProjectDATA",
