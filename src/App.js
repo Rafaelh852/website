@@ -3,17 +3,19 @@ import Page from "./components/Page";
 import {BrowserRouter} from "react-router-dom";
 import Routes from "./Routes";
 
-
+/*
 import ReactGA from "react-ga";
 const TRACKING_ID = "UA-231703413-1";
 ReactGA.initialize(TRACKING_ID);
-
+*/
 function App() {
 
-  
-  useEffect(() => {
+ /*
+   useEffect(() => {
     ReactGA.pageview(window.location.pathname + window.location.search);
   }, []);
+ */ 
+
 
   // Uninitialized state will cause Child to error out
   var [pages,setPage] = useState();

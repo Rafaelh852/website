@@ -42,10 +42,10 @@ const BlogReachView = () => {
   var [headers,setHeaders] = useState();
 
    // use for production
-   // const pa = "/index";
+   const pa = "/index";
 
    //use for development
-   const pa = "/blog/index";
+   //const pa = "/blog/index";
 
   useEffect(()=>{
     fetch(pa).then((res)=>res.json())
