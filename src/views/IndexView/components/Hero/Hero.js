@@ -89,8 +89,8 @@ const Hero = () => {
   };
   return (
     <Box
-    minHeight={300}
-    height={'auto'}
+    
+    height={'100vh'}
     overflow="show"
       sx={{
         backgroundImage: `linear-gradient(to bottom, ${alpha(
@@ -116,7 +116,7 @@ const Hero = () => {
               <br />
               into{' '}
               <Typography
-                color={'primary'}
+                color={"#0288d1"}
                 component={'span'}
                 variant={'inherit'}
                 sx={{
@@ -153,7 +153,7 @@ const Hero = () => {
               <Button
                 component={'a'}
                 variant="contained"
-                color="primary"
+                color="info"
                 size="large"
                 fullWidth={isMd ? false : true}
                 href={'/Portfolio'}
@@ -168,11 +168,12 @@ const Hero = () => {
                 <Button
                   component={'a'}
                   
-                  variant="outlined"
-                  color="primary"
+                  variant="contained"
+                  color="text"
                   size="large"
                   fullWidth={isMd ? false : true}
-                  onClick={() => scrollTo('about')}
+                  href={'/About'}
+                  //onClick={() => scrollTo('about')}
                 >
                   About me
                 </Button>

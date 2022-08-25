@@ -79,7 +79,7 @@ const Form = () => {
               <Button
                 sx={{ height: 54, minWidth: 150 }}
                 variant="contained"
-                color="primary"
+                color="info"
                 size="medium"
                 type="submit"
                 fullWidth

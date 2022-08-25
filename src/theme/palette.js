@@ -79,6 +79,11 @@ export const dark = {
   alternate: {
     main: '#071e3d',//dark
     dark: '#151a30',
+    primary:"#62c3db", // text color in dark form
+    bgc: "#071e3d",
+    secondary:"#278ea5",
+    info:"#1f4287"
+
   },
   cardShadow: 'rgba(0, 0, 0, .11)',
   common: {

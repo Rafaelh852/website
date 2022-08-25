@@ -189,14 +189,68 @@ const Projectblurb = ()=>(<Box paddingBottom={"10px"}>
   </Box>
 </Box>);
 
+/*
+  a data scientist
+  consultant
+  educator 
+
+  hero
+
+  newsletter
+  podcast
+  article 
+
+  benefits
+  technology
+  services -> consulting
+
+  Contact
+
+/About
+  About
+  Skills
+  categories 
+  socials?
+  contact
+
+/Consulting
+hero 
+benefits
+what you get
+
+e comerece sales and forecasting ****
+marketing  i.e tiktoks
+retial  website analytics?
+sports and wellness i.e fitness industry ****
+Logistics
+
+ML consulting
+recomender system
+sentiment analysis for customers
+text analysis
+
+//customer experience consulting
+
+contact
+*/ 
 
   return (
-    <Box sx={{ overflowX: 'hidden' }}>
+    <Box sx={{ overflowX: 'hidden' }} >
       <Main bgcolor={'background.paper'} >
         
         <Hero />
           
-          <Container >
+      </Main>
+    </Box>
+  );
+};
+/*
+
+ 
+*/
+
+/*
+ <Container >
             <About />
           </Container>
        
@@ -205,29 +259,7 @@ const Projectblurb = ()=>(<Box paddingBottom={"10px"}>
           </Container>
 
         <Divider/>
-
-        <Container  >
-          <Projectblurb/>
-          <Projects/>
-        </Container>
-
-        
-       
-          <HireCTA/>
-       
-        
-        
-        
-        <Container>
-          <Contact />
-        </Container>
-        
-        
-      </Main>
-      </Box>
-  );
-};
-
+*/
 
 /* this is the one live rn before changes on 8/3
  <Box

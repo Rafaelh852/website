@@ -8,3 +8,5 @@ export { default as PortfolioGrid } from './PortfolioGrid';
 export { default as Contact } from "./Contact";
 export { default as ThankYou } from "./ThankYou";
 export { default as ProjectView } from "./ProjectView";
+export { default as Home } from "./Home";
+export { default as AboutView } from "./AboutView";

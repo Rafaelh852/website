@@ -12,12 +12,25 @@ const PortfolioGrid = () => {
     <Main>
       <Container>
         <Hero />
+        <MainSection />
       </Container>
-      <Container paddingY={'0 !important'}>
+      
+      
+    </Main>
+  );
+};
+
+
+
+/*
+<Container paddingY={'0 !important'}>
         <Partners />
       </Container>
-      <Container>
-        <MainSection />
+*/
+
+/*
+<Container>
+        
       </Container>
       <Box
         position={'relative'}
@@ -48,12 +61,14 @@ const PortfolioGrid = () => {
             d="M0,0c0,0,934.4,93.4,1920,0v100.1H0L0,0z"
           ></path>
         </Box>
-        <Container>
+        
+      </Box>
+
+*/
+/*
+<Container>
           <Contact />
         </Container>
-      </Box>
-    </Main>
-  );
-};
 
+*/
 export default PortfolioGrid;

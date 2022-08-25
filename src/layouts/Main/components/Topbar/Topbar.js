@@ -19,6 +19,20 @@ const Topbar = ({ onSidebarOpen, pages, colorInvert = false }) => {
     socials: socialLinks
   } = pages;
 
+//{"title":"","ref":""},
+
+ const Links = [
+  {"title":"Home", "ref":"/"},
+  //{"title":"Consulting","ref":"/Service"},
+  {"title":"Projects", "ref":"/Portfolio"},
+  {"title":"About","ref":"/About"},
+  //{"name":"Blog", "ref":"/Blog"},
+  //{"title":"Resume", "ref":"/Resume"},
+  //{"title":"Socials", "ref":"https://linktr.ee/rafaelh852"},
+];
+
+
+
   return (
     <Box
       display={'flex'}
@@ -31,7 +45,7 @@ const Topbar = ({ onSidebarOpen, pages, colorInvert = false }) => {
             underline="none"
             component="a"
             href="/"
-            color={colorInvert ? 'common.white' : 'text.primary'}
+            color={colorInvert ? "text.primary" : 'text.primary'}
           >
             <Typography
               fontFamily={"le-havre, sans-serif;"}
@@ -43,61 +57,24 @@ const Topbar = ({ onSidebarOpen, pages, colorInvert = false }) => {
         </Box>
       <Box sx={{ display: { xs: 'none', md: 'flex' } }} alignItems={'center'}>
 
-        <Box marginLeft = {4}>
+        {Links.map((link)=>(
+          <Box marginLeft = {4}>
           <Link
             underline="none"
             component="a"
-            href="/"
-            color={colorInvert ? 'common.white' : 'text.primary'}
+            href={link.ref}
+            color={colorInvert ? 'alternate.primary' : 'text.primary'}
+            
           >
-            Home
+            {link.title}
           </Link>
         </Box>
-
-        <Box marginLeft = {4}>
-          <Link
-            underline="none"
-            component="a"
-            href="/Blog"
-            color={colorInvert ? 'common.white' : 'text.primary'}
-          >
-            Blog
-          </Link>
-        </Box>
-        <Box marginLeft = {4}>
-          <Link
-            underline="none"
-            component="a"
-            href="/Portfolio"
-            color={colorInvert ? 'common.white' : 'text.primary'}
-          >
-            Portfolio
-          </Link>
-        </Box>
-        <Box marginLeft = {4}>
-          <Link
-            underline="none"
-            component="a"
-            href="/Resume"
-            color={colorInvert ? 'common.white' : 'text.primary'}
-          >
-            Resume
-          </Link>
-        </Box>
-        <Box marginLeft={4}>
-        <Link
-            underline="none"
-            component="a"
-            href="https://linktr.ee/rafaelh852"
-            color={colorInvert ? 'common.white' : 'text.primary'}
-          >
-            Socials
-          </Link>
-        </Box>
+        ))}
+        
         <Box marginLeft={4}>
           <Button
             variant="contained"
-            color="primary"
+            color="info"
             component="a"        
             href="/contact"
             size="large"
@@ -132,6 +109,71 @@ Topbar.propTypes = {
   pages: PropTypes.object,
   colorInvert: PropTypes.bool,
 };
+
+
+/*
+   <Box marginLeft = {4}>
+          <Link
+            underline="none"
+            component="a"
+            href="/"
+            color={colorInvert ? 'common.white' : 'text.primary'}
+          >
+            Home
+          </Link>
+        </Box>
+
+        <Box marginLeft = {4}>
+          <Link
+            underline="none"
+            component="a"
+            href="/Blog"
+            color={colorInvert ? 'common.white' : 'text.primary'}
+          >
+            Blog
+          </Link>
+        </Box>
+
+        <Box marginLeft = {4}>
+          <Link
+            underline="none"
+            component="a"
+            href="/Portfolio"
+            color={colorInvert ? 'common.white' : 'text.primary'}
+          >
+            Portfolio
+          </Link>
+        </Box>
+        <Box marginLeft = {4}>
+          <Link
+            underline="none"
+            component="a"
+            href="/Resume"
+            color={colorInvert ? 'common.white' : 'text.primary'}
+          >
+            Resume
+          </Link>
+        </Box>
+        <Box marginLeft={4}>
+        <Link
+            underline="none"
+            component="a"
+            href="https://linktr.ee/rafaelh852"
+            color={colorInvert ? 'common.white' : 'text.primary'}
+          >
+            Socials
+          </Link>
+        </Box>
+
+*/
+
+
+
+
+
+
+
+
 
 /*
 <NavItem

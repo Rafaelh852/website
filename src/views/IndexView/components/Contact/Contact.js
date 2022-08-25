@@ -16,7 +16,7 @@ const Contact = ()=>{
           <Box marginBottom={2} >
               <Typography
                 color={'dark'}
-                variant="h3"
+                variant="h4"
                 sx={{ fontWeight: 700 }}
                 align="center"
               >

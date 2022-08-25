@@ -8,7 +8,9 @@ import { useTheme } from '@mui/material/styles';
 const links = {
     "Contact":"/contact",
     //"Policy":"/policy",
-    //"Newsletter":"/newsletter"
+    "Medium":"https://medium.com/@rafael.hernandez852",
+    "Newsletter":"https://rafaelhernandez.substack.com/"
+
 };
 
 
@@ -31,7 +33,7 @@ const LinkList = ()=>{
                    variant={'subtitle2'}
                    fontSize="18px"
                    href ={x[1]}
-                   
+                   target="_blank"
                 >
                     {x[0]}
                 </Link>

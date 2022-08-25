@@ -18,6 +18,14 @@ const SidebarNav = ({ pages }) => {
     socials: socialLinks
   } = pages;
 
+  const Links = [
+    {"title":"Home", "ref":"/"},
+    //{"title":"Consulting","ref":"/Service"},
+    //{"title":"Projects", "ref":"/Portfolio"},
+    {"title":"About","ref":"/About"},
+    //{"title":"Socials", "ref":"https://linktr.ee/rafaelh852"},
+  ];
+
 
   return (
     <Box>
@@ -45,14 +53,38 @@ const SidebarNav = ({ pages }) => {
         
       </Box>
       <Box paddingX={2} paddingY={2}>
-        <Box >
-        <NavLink
-            title="Home"
-            href="/"
+        {Links.map((link)=>(
+          <Box >
+          <NavLink
+            title={link.title}
+            href={link.ref}
           /> 
-        </Box>
+          </Box>
+        ))}
+        
 
-        <Box >
+    
+        <Box marginTop={1}>
+          <Button
+            size={'large'}
+            variant="contained"
+            color="primary"
+            fullWidth
+            component="a"
+            target="blank"
+            href="/contact"
+          >
+            Contact
+          </Button>
+        </Box>
+      </Box>
+    </Box>
+  );
+};
+
+/*
+
+    <Box >
         <NavLink
             title="Blog"
             href="/Blog"
@@ -76,24 +108,11 @@ const SidebarNav = ({ pages }) => {
             href="https://linktr.ee/rafaelh852"
           />
         </Box>
-        <Box marginTop={1}>
-          <Button
-            size={'large'}
-            variant="contained"
-            color="primary"
-            fullWidth
-            component="a"
-            target="blank"
-            href="/contact"
-          >
-            Contact
-          </Button>
-        </Box>
-      </Box>
-    </Box>
-  );
-};
+
+*/
+
 /*
+
 
 <NavItem
             title={'Socials'}

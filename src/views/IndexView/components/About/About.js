@@ -8,6 +8,10 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 
 
+
+
+
+
 const About = () => {
 
   const theme = useTheme();
@@ -84,7 +88,7 @@ const About = () => {
           </Typography>
         <p></p>
         <Typography variant="h6" component="p" color="text.secondary">
-          While in grad school, Rafael founded a Data Science support group for students trying to break in to the industry.
+          Resourcefull, passionate, 
         </Typography>
 
       </Box>

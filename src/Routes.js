@@ -12,8 +12,11 @@ import {
   PortfolioGrid as PortfolioGridView,
   Contact as ContactView,
   ThankYou as ThankYouView,
-  ProjectView
+  Home as Homeview,
+  ProjectView,
+  AboutView
 } from './views';
+
 
 /*
 import ReactGA from "react-ga";
@@ -65,6 +68,14 @@ var routes1 = [
   {
     path:"/Projectview",
     renderer: (params = {}) => <ProjectView {...params} />,
+  },
+  {
+    path: "/Home1",
+    renderer: (params = {}) => <Homeview {...params}/>,
+  },
+  {
+    path:"/About",
+    renderer: (params = {}) => <AboutView {...params}/>,
   }
 ];
   

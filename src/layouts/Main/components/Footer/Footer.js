@@ -29,7 +29,7 @@ const Footer = () => {
             underline="none"
             component="a"
             href="/"
-            
+            color={"text.primary"}
           >
             <Typography
               fontFamily={"le-havre, sans-serif;"}
