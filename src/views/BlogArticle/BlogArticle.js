@@ -14,19 +14,19 @@ import {
   SimilarStories,
 } from './components';
 
-
+/*
 import ReactGA from "react-ga";
 const TRACKING_ID = "UA-231703413-1";
 ReactGA.initialize(TRACKING_ID);
-
+*/
 
 const BlogArticle = () => {
 
-  
+  /*
   useEffect(() => {
     ReactGA.pageview(window.location.pathname + window.location.search);
   }, []);
-
+  */
   const theme = useTheme();
   const isMd = useMediaQuery(theme.breakpoints.up('md'), {
     defaultMatches: true,
@@ -39,7 +39,7 @@ const BlogArticle = () => {
   var [page,setPage] = useState();
 
   useEffect(()=>{
-    fetch("" + path).then((res)=>res.json())
+    fetch("/blog/" + path).then((res)=>res.json())
       .then((data)=>setPage(data));
   },[]);
 
