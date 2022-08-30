@@ -33,7 +33,7 @@ const Contact = () => {
         gutterBottom
         color={'text.secondary'}
       >
-        Contact
+        Have a project for me? Send a message bellow
       </Typography>
         </Grid>
        

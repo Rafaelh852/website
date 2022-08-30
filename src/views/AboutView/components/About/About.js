@@ -168,6 +168,39 @@ const About = () => {
 /*
 
 
+2 years analyst in the education sector
+ - funding for 3 years 
+ - analyzed student trends
+ - reduced paperwork
+
+  - i know ML, Regression, Multivar, Inference, Causal, Text Analytics
+  -recommender system?
+
+  i drive a newsletter where i break down the concepts that i know or like to explore
+  
+  i write articles and guides about them too 
+
+  i create indepth courses for deep dives on any topic
+  
+  i talk about them on twitter and such 
+
+  i share these achievements on linked in
+
+
+  Founder, CEO, Chief DS at tau analytics
+  Feb/Aug 2022
+
+  DS consultant for Pickupship ecommerce
+  feb 2022 - Aug 2022
+  
+  Analyst for LACC
+  aug 2017/2016 to 2019
+
+  Have a project for me?
+  contact today!
+
+  hoourly is $65 the hour
+
 */
 
 

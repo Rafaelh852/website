@@ -14,12 +14,13 @@ const PortfolioGrid = () => {
         <Hero />
         <MainSection />
       </Container>
-      
-      
     </Main>
   );
 };
-
+/*
+case studies and projects until hired really
+make resume really simple
+*/
 
 
 /*

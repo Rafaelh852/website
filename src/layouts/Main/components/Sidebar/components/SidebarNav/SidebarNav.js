@@ -21,7 +21,7 @@ const SidebarNav = ({ pages }) => {
   const Links = [
     {"title":"Home", "ref":"/"},
     //{"title":"Consulting","ref":"/Service"},
-    //{"title":"Projects", "ref":"/Portfolio"},
+    {"title":"Projects", "ref":"/Portfolio"},
     {"title":"About","ref":"/About"},
     //{"title":"Socials", "ref":"https://linktr.ee/rafaelh852"},
   ];
