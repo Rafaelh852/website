@@ -14,12 +14,12 @@ import CardMedia from '@mui/material/CardMedia';
 
 const mock = [
   {
-  image: 'https://portfolio-static-storage.us-southeast-1.linodeobjects.com/mentalhealth1.png',
-  description: 'Machine Learning Project for kaggle mental health data set. -XGBoost -Sentiment analysis -text mining',
-  title: 'Mental Health in the Workplace',
-  github:"https://github.com/Rafaelh852/mentalHealth",
-  demo:"/nodemo",
-  },
+    image: 'https://assets.maccarianagency.com/backgrounds/img2.jpg',
+    description: 'a platform that lets anyone explore, create, and share interactive data visualizations online using public data.',
+    title: 'Tableau Public Portfolio',
+    github:"https://github.com/Rafaelh852",
+    demo:"https://public.tableau.com/app/profile/rafael.hernandez4729",
+    },
   {
     image: 'https://portfolio-static-storage.us-southeast-1.linodeobjects.com/projN.png',
     description: 'Finite Element Method 1-Dimensional solver',
@@ -33,6 +33,14 @@ const mock = [
     title: 'FEM 2D solver',
     github:"https://github.com/Rafaelh852/FEM2Dsolver",
     demo:"/nodemo",
+  },
+  /*
+  {
+  image: 'https://portfolio-static-storage.us-southeast-1.linodeobjects.com/mentalhealth1.png',
+  description: 'Machine Learning Project for kaggle mental health data set. -XGBoost -Sentiment analysis -text mining',
+  title: 'Mental Health in the Workplace',
+  github:"https://github.com/Rafaelh852/mentalHealth",
+  demo:"/nodemo",
   },
   {
     image: 'https://portfolio-static-storage.us-southeast-1.linodeobjects.com/prelim1.png',
@@ -48,7 +56,7 @@ const mock = [
     github:"https://github.com/Rafaelh852/ProjectDATA",
     demo:"/nodemo",
   },
- 
+ */
 ];
 
 const Main = () => {
