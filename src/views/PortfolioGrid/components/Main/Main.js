@@ -14,7 +14,7 @@ import CardMedia from '@mui/material/CardMedia';
 
 const mock = [
   {
-    image: 'https://assets.maccarianagency.com/backgrounds/img2.jpg',
+    image: 'https://portfolio-static-storage.us-southeast-1.linodeobjects.com/total.png',
     description: 'a platform that lets anyone explore, create, and share interactive data visualizations online using public data.',
     title: 'Tableau Public Portfolio',
     github:"https://github.com/Rafaelh852",
