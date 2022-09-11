@@ -27,13 +27,13 @@ const Contact = () => {
         <Grid item xs={4} >
           <Typography
         sx={{
-          textTransform: 'uppercase',
+          //textTransform: 'uppercase',
           fontWeight: 'medium',
         }}
         gutterBottom
         color={'text.secondary'}
       >
-        Have a project for me? Send a message bellow
+        Have a project for me?
       </Typography>
         </Grid>
        
