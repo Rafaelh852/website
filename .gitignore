@@ -22,4 +22,4 @@ venv/
 
 package-lock.json
 
-.graphqlconfig
+/src/projects/Workspace
