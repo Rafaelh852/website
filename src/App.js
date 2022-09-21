@@ -20,10 +20,7 @@ function App() {
   // Uninitialized state will cause Child to error out
   var [pages,setPage] = useState();
   
-  // use for production // might not be needed
-  //const pa = "/index";
-
-  //use for production and development??? 
+  //use for production and development
   const pa = "/blog/index";
 
   useEffect(()=>{

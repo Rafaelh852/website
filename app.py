@@ -9,7 +9,14 @@ import json
 
 app = Flask(__name__)
 
-@app.route("/<post>")
+# sets default route for blog post to production
+dev_or_prod_route = "/<post>"
+
+# if in development changes route
+if app.config["ENV"] == "development":
+    dev_or_prod_route = "/blog/<post>"
+
+@app.route(dev_or_prod_route)
 def index(post):
     ''' markdown headers should have the following without quotes and paths with no /
     preview:  
