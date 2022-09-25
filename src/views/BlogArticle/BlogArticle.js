@@ -8,6 +8,7 @@ import Main from '@/layouts/Main';
 import Container from '@/components/Container';
 import Newsletter from '@/components/Newsletter';
 
+
 import {
   Content,
   Hero,
@@ -77,7 +78,7 @@ Whenever you're ready, there are 3 ways I can help you:
 3. Promote your brand/business to 40k+ subscribers by sponsoring our newsletter (Booked out 10 weeks)
           </p>
           <Newsletter/>
-
+          
         </Container>
       </Box>
       }
