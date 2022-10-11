@@ -17,14 +17,14 @@ import CardMedia from '@mui/material/CardMedia';
 const mock = [
     
     {
-      image: '/assets/pics/project/projN.png',
+      image: 'https://portfolio-static-storage.us-southeast-1.linodeobjects.com/projN.png',
       description: 'Finite Element Method 1-Dimensional solver',
       title: 'FEM 1D solver',
       github:"https://github.com/Rafaelh852/FEM1Dsolver",
       demo:"/nodemo",
     },
     {
-      image: '/assets/pics/project/proj2.png',
+      image: 'https://portfolio-static-storage.us-southeast-1.linodeobjects.com/proj2.png',
       description: 'Finite Element Method 2-Dimensional solver',
       title: 'FEM 2D solver',
       github:"https://github.com/Rafaelh852/FEM2Dsolver",
