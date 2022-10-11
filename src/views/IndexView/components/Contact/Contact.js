@@ -14,29 +14,40 @@ const Contact = ()=>{
     return (
         <Box >
           <Box marginBottom={2} >
-              <Typography
-                color={'dark'}
-                variant="h4"
-                sx={{ fontWeight: 700 }}
-                align="center"
-              >
-                Contact
-              </Typography>
+             
+          <Typography
+      variant="h6"
+      component="p"
+      color="text.secondary"
+      align={'center'}
+      gutterBottom
+      sx={{ fontWeight: 400 }}
+    >
+      Have a project for me?
+    </Typography>
+    <Typography
+      variant="h4"
+      color="text.primary"
+      align={'center'}
+      sx={{
+        fontWeight: 700,
+      }}
+    >
+      Contact
+    </Typography>
+
             </Box>
-            <Box marginBottom={3}>
-              <Typography variant="h6" component="p" color="text.secondary" align="center">
-                
-              </Typography>
 
 
-            </Box>
+
+
 
           <Box >
-            <Grid container justifyContent="center">
+            <Grid container justifyContent="center" >
               
             <Grid
             item 
-            md = {6}
+            width="542px"
             padding={{ xs: 3, sm: 6 }}
             
             component={Card}

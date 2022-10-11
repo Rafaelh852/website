@@ -8,6 +8,14 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import Typed from 'react-typed';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import CardMedia from '@mui/material/CardMedia';
+import SyntaxHighlighter from 'react-syntax-highlighter/dist/esm/default-highlight';
+import vs2015 from 'react-syntax-highlighter/dist/cjs/styles/hljs/vs2015';
+
+import CodeBlock from "@/components/CodeBlock";
+import Commentary from '@/components/Commentary';
+
 
 import {
   GetStarted,
@@ -21,7 +29,9 @@ import {
   Projects,
   Contact
 } from './components';
-import { Divider } from '@mui/material';
+import { Divider, Grid } from '@mui/material';
+import style from 'react-syntax-highlighter/dist/esm/styles/hljs/a11y-dark';
+import TwoCols from '@/components/TwoCols';
 
 const IndexView = () => {
   useEffect(() => {
@@ -48,6 +58,7 @@ const IndexView = () => {
       window.scrollTo({ left: 0, top: element.offsetTop, behavior: 'smooth' });
     });
   };
+
   const theme = useTheme();
   const isMd = useMediaQuery(theme.breakpoints.up('md'), {
     defaultMatches: true,
@@ -189,6 +200,34 @@ const Projectblurb = ()=>(<Box paddingBottom={"10px"}>
   </Box>
 </Box>);
 
+
+
+/*
+
+discussion model
+
+<Container paddingX="40px">
+    <Grid container paddingY = "15px" >
+    <Grid
+      item xs={12} md={6} marginY="40px" padding="15px" height={"377.5px"}
+      
+    >
+      
+    </Grid>
+   
+    <Grid
+      item xs={12} md={6}  marginY="40px" padding="15px" height={"377.5px"}
+     
+    > 
+    
+    </Grid>
+    </Grid>
+</Container>
+
+
+
+*/
+
 /*
   a data scientist
   consultant
@@ -232,14 +271,117 @@ text analysis
 //customer experience consulting
 
 contact
+
+
+const Code = ({text})=>(<Box
+  component={SyntaxHighlighter}
+  language={'python'}
+  style={vs2015}
+  padding={`${theme.spacing(2)} !important`}
+  borderRadius={2}
+  margin={`${theme.spacing(0)} !important`}
+  bgcolor={'#21325b !important'}
+>
+  {text}
+</Box>)
+
+
+
 */ 
+
+
+// function that splits strings by newline
+function splitby(str){
+  return str.split(/\r?\n/).filter(x => x !="");
+}
+
+const NBAscrapeCode = `# anything after 6+ not included
+# years causes errors with the teams 
+for year in years:
+
+    #fetches url
+    driver.get(urls(year))
+
+    #grabs table from 
+    elem = driver
+      .find_element(By.CLASS_NAME,"Crom_table__p1iZz")
+`
+
+const contenido = {
+  heading:"Build tools and full documention",
+  body: splitby(`
+  Components, plugins, and build tools are all thoroughly documented with live examples and markup for easier use and customization
+  This is why its hot but also there is a normal
+  distribution such that you mus reach out and contact
+  `)
+}
+
+const debug ={border:"2px solid red"};
+
+const verin = {
+body:[""],
+  heading: "Project: Analysis of Bank Product Complaints",
+
+}
+
+/*
+
+<TwoCols
+
+        col2 = <CardMedia 
+          component="iframe"
+          src="./dashboards/dash.html"
+          height="416px"  
+          />
+        />
+
+       
+
+<TwoCols 
+        col1 = <Commentary content={contenido} />
+        col2 = <CodeBlock text = {NBAscrapeCode}/>
+
+      />
+
+*/
 
   return (
     <Box sx={{ overflowX: 'hidden' }} >
       <Main bgcolor={'background.paper'} >
-        
-        <Hero />
+
+      
+      
+      <Hero/>
+      <Container paddingX="38px">
+       <Commentary content={verin} centering="left" />  
+        <CardMedia 
+          component="iframe"
+          src="./dashboards/dash.html"
+          height={"630px"}
           
+          
+          />
+     
+         
+        </Container>
+       
+      
+    
+    
+      <Container>
+        <Projectblurb/>
+        <Projects/>
+      </Container>
+
+      <Container>
+        <About/>
+        <Skills/>
+      </Container>
+
+      <Container>
+        <Contact/>
+      </Container>
+      
       </Main>
     </Box>
   );

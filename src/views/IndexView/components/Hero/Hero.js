@@ -25,6 +25,7 @@ const images = [
         coverDark:
           'https://portfolio-static-storage.us-southeast-1.linodeobjects.com/cali.png',
       },
+      
     ],
   }, {
     group: [
@@ -34,12 +35,14 @@ const images = [
         coverDark:
           'https://portfolio-static-storage.us-southeast-1.linodeobjects.com/total.png',
       },
+      
       {
         cover:
           'https://portfolio-static-storage.us-southeast-1.linodeobjects.com/mod2.png',
         coverDark:
           'https://portfolio-static-storage.us-southeast-1.linodeobjects.com/mod2.png',
       },
+      
     ],
   },
   {
@@ -52,9 +55,9 @@ const images = [
       },
       {
         cover:
-          'https://portfolio-static-storage.us-southeast-1.linodeobjects.com/mentalhealth1.png',
+          'https://portfolio-static-storage.us-southeast-1.linodeobjects.com/BankProductDashboard.PNG',
         coverDark:
-          'https://portfolio-static-storage.us-southeast-1.linodeobjects.com/mentalhealth1.png',
+          'https://portfolio-static-storage.us-southeast-1.linodeobjects.com/BankProductDashboard.PNG',
       },
       {
         cover:
@@ -90,8 +93,8 @@ const Hero = () => {
   return (
     <Box
     
-    height={'100vh'}
-    overflow="show"
+    height={'645px'}
+    overflow="hidden"
       sx={{
         backgroundImage: `linear-gradient(to bottom, ${alpha(
           theme.palette.background.paper,
@@ -104,8 +107,18 @@ const Hero = () => {
       <Box paddingY={{ xs: 0, sm: '4rem', md: '8rem' }}>
         <Container>
           <Box maxWidth={{ xs: 1, sm: '50%' }}>
-            <Typography
+          <Typography
               variant="h2"
+              color="text.primary"
+              gutterBottom
+              sx={{
+                fontWeight: 700,
+              }}
+            >
+              
+            </Typography>
+            <Typography
+              variant="h3"
               color="text.primary"
               gutterBottom
               sx={{

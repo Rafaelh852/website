@@ -56,6 +56,7 @@ const About = () => {
         alignItems={'center'}
         display={'flex'}
         paddingTop={13}
+        marginTop={-13}
         overflow="hidden"
         
     >
@@ -79,18 +80,63 @@ const About = () => {
             fontWeight: 700,
           }}
         >
-        a Data Scientist
-        </Typography>
+      Data Scientist
+      </Typography>
       </Box>
       <Box marginBottom={3}>
         <Typography variant="h6" component="p" color="text.secondary">
-          Rafael is a Data Scientist who's work has achieved funding for colleges and insight for companies. 
-          </Typography>
+          Applying Statistics and problem-solving techniques to create informed, data-driven decisions. 
+        </Typography>
         <p></p>
         <Typography variant="h6" component="p" color="text.secondary">
-          Resourcefull, passionate, 
+        Strengths in Causal Inference, Machine Learning, Text Analysis, Sentiment Analysis, and NLP 
         </Typography>
-
+        
+        <Box  display="flex"
+              flexDirection={{ xs: 'column', sm: 'row' }}
+              alignItems={{ xs: 'stretched', sm: 'flex-start' }}
+              marginTop={4}
+              >
+          <Button
+             component={'a'}
+             variant="contained"
+             color="info"
+             size="medium"
+             fullWidth={isMd ? false : true}
+             href={'/Portfolio'}
+          >
+            View Projects
+          </Button>
+           <Box paddingX={2}></Box>
+           <Button
+           
+            variant="contained"
+            color="text"
+            size="medium"
+            startIcon={
+              <Box
+                component={'svg'}
+                xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                width={20}
+                height={20}
+                
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z"
+                  clipRule="evenodd"
+                />
+              </Box>
+            }
+            href={'https://portfolio-static-storage.us-southeast-1.linodeobjects.com/Rafael Hernandez Resume.docx'}
+            download
+          >
+            Download Resume
+        </Button>
+        </Box>
+       
       </Box>
      
       
@@ -118,7 +164,6 @@ const About = () => {
             />
           </Box>
     </Box>
-       
     );
 };
 ///paddingY={{ xs: 0, sm: '4rem', md: '8rem' }}

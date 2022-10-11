@@ -6,6 +6,7 @@ import { light, dark } from './palette';
 const getTheme = (mode, themeToggler) =>
   responsiveFontSizes(
     createTheme({
+      
       palette: mode === 'light' ? light : dark,
       shadows: shadows(mode),
       typography: {
@@ -58,6 +59,7 @@ const getTheme = (mode, themeToggler) =>
         },
       },
       themeToggler,
+
     }),
   );
 

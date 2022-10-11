@@ -16,7 +16,6 @@ const mock = [
   //"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-line.svg",
   //"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-plain-wordmark.svg" ,
   //"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg" ,
-  
 ];
 
 const Skills = ()=>{
